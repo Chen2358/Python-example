@@ -1,2 +1,3 @@
 # Python-example
-Learning Python
+
+Here are some examples of python
