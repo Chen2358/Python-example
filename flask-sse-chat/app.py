@@ -9,7 +9,7 @@ import redis
 app = flask.Flask('sse-chat')
 app.secret_key = 'chen'
 
-r = redis.StrictRedis()
+r = redis.StrictRedis(host='localhost', port=6379, db=6)
 
 def event_stream():
 	pubsub = r.pubsub()
