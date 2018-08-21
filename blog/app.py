@@ -43,11 +43,13 @@ oembed_providers = bootstrap_basic(OEmbedCache())
 
 class Entry(flask_db.Model):
 	title = CharField()	
-	slug = CharField(unique=True)	#基于标题生成的链接地址
+	#基于标题生成的链接地址
+	slug = CharField(unique=True)	
 	content = TextField()
 	published = BooleanField(index=True)
 	timestamp = DateTimeField(default=datetime.datetime.now, index=True)
 
+	#Markdown转化为html
 	@property
 	def html_content(self):
 		hilite = CodeHiliteExtension(linenums=False, css_class='highlight')
@@ -67,6 +69,7 @@ class Entry(flask_db.Model):
 
 		self.update_search_index()
 		return ret
+	
 	#更新索引
 	def update_search_index(self):
 		try:
@@ -83,7 +86,7 @@ class Entry(flask_db.Model):
 	def public(cls):
 		return Entry.select().where(Entry.published == True)
 	
-	
+	#未公开的博文
 	@classmethod
 	def drafts(cls):
 		return Entry.select().where(Entry.published == False)
@@ -106,7 +109,7 @@ class Entry(flask_db.Model):
 					(FTSEntry.match(search)))
 				.order_by(SQL('score').desc()))
 
-#创建或更i性能搜索索引
+#创建或更新搜索索引
 class FTSEntry(FTSModel):
 	entry_id = IntegerField(Entry)
 	content = TextField()
@@ -171,6 +174,7 @@ def create():
 			flash('Title and content are required.', 'danger')
 	return render_template('create.html')
 
+#草稿，未公开的
 @app.route('/drafts/')
 @login_required
 def drafts():
