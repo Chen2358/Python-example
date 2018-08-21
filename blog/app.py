@@ -116,6 +116,7 @@ class FTSEntry(FTSModel):
 
 	class Meta:
 		database = database
+
 #定义装饰器，使用session中的logged_in 判断是否已经登录
 def login_required(fn):
 	@functools.wraps(fn)
