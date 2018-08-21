@@ -23,7 +23,7 @@ ADMIN_PASSWORD = 'admin'
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
 DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
 DEBUG = False
-SECRET_KEY = 'hahahh, secret!'     #Flask Apps SECRET_KEY
+SECRET_KEY = 'hahahh, secret!'     
 SITE_WIDTH = 800
 
 app = Flask(__name__)
@@ -57,7 +57,7 @@ class Entry(flask_db.Model):
 
 	def save(self, *args, **kwargs):
 		if not self.slug:
-			self.slug = re.sub('[^\w]+', '-', self.title.lower())
+			self.slug = re.sub('[^\w]+', '-', self.title.lower()).strip('-')
 		ret = super(Entry, self).save(*args, **kwargs)
 
 		self.update_search_index()
@@ -94,7 +94,7 @@ class Entry(flask_db.Model):
 					FTSEntry,
 					Entry,
 					FTSEntry.rank().alias('score'))
-				.join(Entry, on(FTSEntry.entry.id == Entry.id).alias('entry'))
+				.join(Entry, on=(FTSEntry.entry_id == Entry.id).alias('entry'))
 				.where(
 					(Entry.published == True) &
 					(FTSEntry.match(search)))
@@ -102,7 +102,7 @@ class Entry(flask_db.Model):
 
 
 class FTSEntry(FTSModel):
-	entry_id = IntegerField()
+	entry_id = IntegerField(Entry)
 	content = TextField()
 
 	class Meta:
@@ -123,6 +123,7 @@ def login():
 		password = request.form.get('password')
 		if password == app.config['ADMIN_PASSWORD']:
 			session['logged_in'] = True
+			session.permanent = True
 			flash('You are now logged in.', 'success')
 			return redirect(next_url or url_for('index'))
 		else:
@@ -143,18 +144,18 @@ def index():
 		query = Entry.search(search_query)
 	else:
 		query = Entry.public().order_by(Entry.timestamp.desc())
-	return object_list('index.html', query, search=search_query)
+	return object_list('index.html', query, search=search_query, check_bounds=False)
 
 @app.route('/create/', methods=['GET', 'POST'])
 @login_required
 def create():
-	if request.methods == 'POST':
+	if request.method == 'POST':
 		if request.form.get('title') and request.form.get('content'):
 			entry = Entry.create(
 				title=request.form['title'],
-				content=request.form['title'],
+				content=request.form['content'],
 				published=request.form.get('published') or False)
-			flash('Entry created successfully.', 'sucess')
+			flash('Entry created successfully.', 'success')
 			if entry.published:
 				return redirect(url_for('detail', slug=entry.slug))
 			else:
@@ -167,7 +168,7 @@ def create():
 @login_required
 def drafts():
 	query = Entry.drafts().order_by(Entry.timestamp.desc())
-	return object_list('index.html', query)
+	return object_list('index.html', query, check_bounds=False)
 
 @app.route('/<slug>/')
 def detail(slug):
@@ -183,7 +184,7 @@ def detail(slug):
 def edit(slug):
 	entry = get_object_or_404(Entry, Entry.slug == slug)
 	if request.method == 'POST':
-		if request.form.get('title') andd request.form.get('content'):
+		if request.form.get('title') and request.form.get('content'):
 			entry.title = request.form['title']
 			entry.content = request.form['content']
 			entry.published =  request.form.get('published') or False
