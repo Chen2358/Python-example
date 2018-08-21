@@ -21,24 +21,29 @@ from playhouse.sqlite_ext import *
 
 ADMIN_PASSWORD = 'admin'
 APP_DIR = os.path.dirname(os.path.realpath(__file__))
+#数据库地址
 DATABASE = 'sqliteext:///%s' % os.path.join(APP_DIR, 'blog.db')
 DEBUG = False
-SECRET_KEY = 'hahahh, secret!'     
+#Flask app中加密会话 cookie 的密钥
+SECRET_KEY = 'hahahh, secret!'    
 SITE_WIDTH = 800
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+#FlaskDB是一个用于创建请求前/请求后的peewee数据库的包装器
+#用于管理数据库连接的钩子
 flask_db = FlaskDB(app)
 database = flask_db.database
 
+#micawber提供的嵌入内容服务组件
 oembed_providers = bootstrap_basic(OEmbedCache())
 
 
 
 class Entry(flask_db.Model):
-	title = CharField()
-	slug = CharField(unique=True)
+	title = CharField()	
+	slug = CharField(unique=True)	#基于标题生成的链接地址
 	content = TextField()
 	published = BooleanField(index=True)
 	timestamp = DateTimeField(default=datetime.datetime.now, index=True)
@@ -54,7 +59,7 @@ class Entry(flask_db.Model):
 			urlize_all=True,
 			maxwidth=app.config['SITE_WIDTH'])
 		return Markup(oembed_content)
-
+	
 	def save(self, *args, **kwargs):
 		if not self.slug:
 			self.slug = re.sub('[^\w]+', '-', self.title.lower()).strip('-')
@@ -62,7 +67,7 @@ class Entry(flask_db.Model):
 
 		self.update_search_index()
 		return ret
-
+	#更新索引
 	def update_search_index(self):
 		try:
 			fts_entry = FTSEntry.get(FTSEntry.entry_id == self.id)
@@ -77,7 +82,8 @@ class Entry(flask_db.Model):
 	@classmethod
 	def public(cls):
 		return Entry.select().where(Entry.published == True)
-
+	
+	
 	@classmethod
 	def drafts(cls):
 		return Entry.select().where(Entry.published == False)
@@ -100,14 +106,14 @@ class Entry(flask_db.Model):
 					(FTSEntry.match(search)))
 				.order_by(SQL('score').desc()))
 
-
+#创建或更i性能搜索索引
 class FTSEntry(FTSModel):
 	entry_id = IntegerField(Entry)
 	content = TextField()
 
 	class Meta:
 		database = database
-
+#定义装饰器，使用session中的logged_in 判断是否已经登录
 def login_required(fn):
 	@functools.wraps(fn)
 	def inner(*args, **kwargs):
@@ -130,6 +136,7 @@ def login():
 			flash('Incorrect password.', 'failture')
 	return render_template('login.html', next_url=next_url)
 
+#登出，清空session返回登录
 @app.route('/logout/',methods=['GET', 'POST'])
 def logout():
 	if request.method == 'POST':
@@ -200,6 +207,7 @@ def edit(slug):
 
 	return render_template('edit.html',entry=entry)
 
+#全文搜索时试用Temperate Filter 过滤搜索文字中不需要的内容，保证搜索的准确性
 @app.template_filter('clean_querystring')
 def clean_querystring(request_args, *keys_to_remove, **new_values):
 	querystring = dict((key, value) for key, value in request_args.items())
@@ -208,6 +216,7 @@ def clean_querystring(request_args, *keys_to_remove, **new_values):
 	querystring.update(new_values)
 	return urllib.urlencode(querystring)
 
+#自定义404页面
 @app.errorhandler(404)
 def not_found(exc):
 	return Response('<h3>Page not found</h3>'), 404
