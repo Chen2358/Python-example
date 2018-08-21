@@ -1,3 +1,3 @@
 # Python-example
 
-Here are some examples of python
+Here are some projects of python
