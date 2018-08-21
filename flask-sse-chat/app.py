@@ -1,4 +1,8 @@
+# -*- coding: utf-8 -*-
+
 #!/usr/bin/env python
+
+
 import datetime
 import flask
 import redis
