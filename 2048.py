@@ -16,6 +16,7 @@ class Action(object):
 	EXIT = 'exit'
 
 	letter_codes = [ord(ch) for ch in 'WASDRQwasdrq']
+	#用户行为
 	actions = [UP, LEFT, DOWN, RIGHT, RESTART, EXIT]
 	actions_dict = dict(zip(letter_codes, actions * 2))
 
