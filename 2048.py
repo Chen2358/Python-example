@@ -22,7 +22,7 @@ class Action(object):
 
 	def __init__(self, stdscr):
 		self.stdscr = stdscr
-
+	#获取用户有效输入
 	def get(self):
 		char = 'N'
 		while char not in self.actions_dict:
@@ -41,26 +41,27 @@ class Grid(object):
 		self.cells = [[0 for i in range(self.size)] for j in range(self.size)]
 		self.add_random_item()
 		self.add_random_item()
-
+	#随机生成2或4
 	def add_random_item(self):
 		empty_cells = [(i, j) for i in range(self.size) for j in range(self.size) if self.cells[i][j] == 0]
 		(i, j) = random.choice(empty_cells)
 		self.cells[i][j] = 4 if random.randrange(100) >= 90 else 2
-
+	#矩阵转置
 	def transpose(self):
 		self.cells = [list(row) for row in zip(*self.cells)]
-
+	#矩阵逆转
 	def invert(self):
 		self.cells = [row[::-1] for row in self.cells]
 
-
+	#一行向左合并
 	@staticmethod
 	def move_row_left(row):
+		#把零散的非零单元挤到一起
 		def tighten(row):
 			new_row = [i for i in row if i != 0]
 			new_row += [0 for i in range(len(row) - len(new_row))]
 			return new_row
-
+		#对相邻元素进行合并
 		def merge(row):
 			pair = False
 			new_row = []
@@ -77,12 +78,13 @@ class Grid(object):
 						new_row.append(row[i])
 			assert len(new_row) == len(row)
 			return new_row
+		#先挤到一块再合并
 		return tighten(merge(tighten(row)))
-
+	#向左合并
 	def move_left(self):
 		self.cells = [self.move_row_left(row) for row in self.cells]
 
-
+	#通过转置和逆转操作其余方向的移动
 	def move_right(self):
 		self.invert()
 		self.move_left()
@@ -98,7 +100,7 @@ class Grid(object):
 		self.move_right()
 		self.transpose()
 
-
+	#判断能否移动
 	@staticmethod
 	def row_can_move_left(row):
 		def change(i):
@@ -130,7 +132,7 @@ class Grid(object):
 		self.transpose()
 		return can
 
-
+#绘制界面
 class Screen(object):
 
 	help_string1 = '(W)up (S)down (A)left (D)right'
@@ -151,7 +153,7 @@ class Screen(object):
 
 	def draw_row(self, row):
 		self.cast(''.join('|{: ^5}'.format(num) if num > 0 else '|     ' for num in row) + '|')
-
+	#绘制水平分割线
 	def draw(self):
 		self.screen.clear()
 		self.cast('SCORE: ' + str(self.score))
@@ -176,7 +178,7 @@ class GameManager(object):
 		self.size = size
 		self.win_num = win_num
 		self.reset()
-
+	#重置
 	def reset(self):
 		self.state = 'init'
 		self.win = False
@@ -196,7 +198,7 @@ class GameManager(object):
 			return True
 		else:
 			False
-
+	#判断输赢
 	@property
 	def is_win(self):
 		self.win = max(chain(*self.grid.cells)) >= self.win_num
@@ -216,6 +218,7 @@ class GameManager(object):
 
 	def state_game(self):
 		self.screen.draw()
+		
 		action = self.action.get()
 
 		if action == Action.RESTART:
@@ -228,7 +231,7 @@ class GameManager(object):
 			if self.is_over:
 				return 'over'
 		return 'game'
-
+	#获取用户输入，判断重启还是结束
 	def _restart_or_exit(self):
 		self.screen.draw()
 		return 'init' if self.action.get() == Action.RESTART else 'exit'
@@ -243,6 +246,7 @@ class GameManager(object):
 		curses.use_default_colors()
 		self.stdscr = stdscr
 		self.action = Action(stdscr)
+		#状态机开始循环
 		while self.state != 'exit()':
 			self.state = getattr(self, 'state_' + self.state)()
 
