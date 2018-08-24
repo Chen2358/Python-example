@@ -1,3 +1,19 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+
+'''
+1、搬运；
+2、使用图片隐藏信息
+3、依赖
+（1）切换python版本
+$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.4 70 --slave /usr/bin/python3m python3m /usr/bin/python3.4m
+$ sudo apt-get install python3-dev python3-setuptools
+
+（2）安装包
+$ sudo apt-get install libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
+$ sudo pip3 install Pillow
+'''
+
 from PIL import Image
 
 """
