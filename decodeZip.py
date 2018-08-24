@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 '''
-尝试暴力破解zipw文件
+尝试暴力破解zip文件
 '''
 
 import zipfile
