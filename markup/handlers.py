@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-class Handler:
+'''
+给文本块加上HTML标记
+'''
 
+class Handler:
+	#处理程序父类
+	
 	def callback(self, prefix, name, *args):
+		#返回一个对象的属性值
 		method = getattr(self, prefix + name, None)
+		#判断函数是否可被调用
 		if callable(method): return method(*args)
 
 	def start(self, name):
@@ -22,6 +29,7 @@ class Handler:
 
 class HTMLRenderer(Handler):
 
+	#HTML 处理程序，给文本块加对应的HTML标记
 	def start_document(self):
 		print('<html><head><title>Hello world</title></head><body>')
 
