@@ -1,6 +1,9 @@
 #!/usr/bin/env /python3
 # encodig: utf-8
 
+'''
+文本块生成器：把纯文本分成一个个文本块
+'''
 def lines(file):
 	for line in file: yield line
 	yield '\n'
