@@ -12,13 +12,20 @@ class Rule:
 
 class HeadingRule(Rule):
 
+	'''
+	一号标题规则
+	'''
 	type = 'heading'
 	def condition(self, block):
+		#判断文本块是否符合规则
 		return not '\n' in block and len(block) <= 70 and not block[-1] == ':'
 
 
 class TitleRule(HeadingRule):
 
+	'''
+	二号标题规则
+	'''
 	type = 'title'
 	first = True
 
@@ -30,6 +37,9 @@ class TitleRule(HeadingRule):
 
 class ListItemRule(Rule):
 
+	'''
+	列表项规则
+	'''
 	type = 'listitme'
 	def condition(self, block):
 		return block[0] == '-'
@@ -42,6 +52,10 @@ class ListItemRule(Rule):
 
 class ListRule(ListItemRule):
 
+	
+	'''
+	列表规则
+	'''
 	type = 'list'
 	inside = False
 	def condition(self, block):
@@ -59,6 +73,10 @@ class ListRule(ListItemRule):
 
 class ParagraphRule(Rule):
 
+	
+	'''
+	段落规则
+	'''
 	type = 'paragraph'
 	def condition(self, block):
 		return True
