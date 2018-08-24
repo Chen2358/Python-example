@@ -8,23 +8,27 @@ from rules import *
 
 class Parser:
 
+	
+	'''
+	解析器父类
+	'''
 	def __init__(self, handler):
 		self.handler = handler
 		self.rules = []
 		self.filters = []
 
 	def addRule(self, rule):
-
+		#添加规则
 		self.rules.append(rule)
 
 	def addFilter(self, pattern, name):
-
+		#添加过滤器
 		def filter(block, handler):
 			return re.sub(pattern, handler.sub(name), block)
 		self.filters.append(filter)
 
 	def parse(self, file):
-
+		#解析
 		self.handler.start('document')
 		for block in blocks(file):
 			for filter in self.filters:
@@ -38,6 +42,7 @@ class Parser:
 
 class BasicTextParser(Parser):
 
+	#纯文本解析器
 	def __init__(self, handler):
 		Parser.__init__(self, handler)
 		self.addRule(ListRule())
@@ -50,7 +55,9 @@ class BasicTextParser(Parser):
 		self.addFilter(r'(http://[\.a-zA-Z]+)', 'url')
 		self.addFilter(r'[\.a-zA-Z]+@[\.a-zA-Z]+', 'mail')
 
-
+'''
+运行程序
+'''
 handler = HTMLRenderer()
 parser = BasicTextParser(handler)
 parser.parse(sys.stdin)
