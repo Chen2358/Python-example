@@ -56,7 +56,7 @@ class BasicTextParser(Parser):
 		self.addFilter(r'[\.a-zA-Z]+@[\.a-zA-Z]+', 'mail')
 
 '''
-运行程序
+运行程序：python markup.py < test.txt > test.html
 '''
 handler = HTMLRenderer()
 parser = BasicTextParser(handler)
