@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
+'''
+尝试暴力破解zip文件
+'''
+
 import zipfile
 import argparse
 import os
 from os.path import *
 
+
+#解压文件
 def tryZipPwd(zipFile, password, savePath):
 	try:
 		zipFile.extractall(path=savePath, pwd=password.encode('utf-8'))
@@ -15,6 +21,7 @@ def tryZipPwd(zipFile, password, savePath):
 		print('[-] Zip file decompression failed, password: %s' % (password))
 
 def main():
+	#创建 ArgumentParser对象
 	parser = argparse.ArgumentParser(description='Burte Crack Zip')
 	parser.add_argument('-f', dest='zFile', type=str, help='The zip file path.')
 	parser.add_argument('-w', dest='pwdFile', type=str, help='password dictionary file.')
@@ -32,7 +39,7 @@ def main():
 	if zFilePath == None or pwdFilePath == None:
 		print(parser.parse_args('-h'))
 		exit(0)
-
+	#创建ZipFile对象，循环读取密码文件
 	with zipfile.ZipFile(zFilePath) as zFile:
 		with open(pwdFilePath) as f:
 			for pwd in f.readlines():
@@ -43,6 +50,7 @@ def main():
 					os.mkdir(dirPath)
 				except:
 					pass
+				#调用解压缩函数，根据返回值判断是否找到密码，找到则退出循环
 				ok = tryZipPwd(zFile, pwd.strip('\n'), dirPath)
 				if ok:
 					break
