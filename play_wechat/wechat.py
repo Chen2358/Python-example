@@ -2,10 +2,9 @@
 # coding: utf-8
 
 '''
-1 shixian nixu huifu 
-paqu qiushi baike huifu
+逆序回复文本信息或随机回复笑话
 
-yilai 
+依赖的包：
 sudo pip3 install flask requests lxml
 '''
 
@@ -26,13 +25,13 @@ app = Flask(__name__)
 def hello():
 	return "Chen say: hello world"
 
-#wechat jiaoyan
+#微信校验
 @app.route('/', methods=['GET', 'POST'])
 def wechat_auth():
 	if request.method == 'GET':
 		print('Coming Get')
 		data = request.args
-		#wechat token
+		#微信平台的token
 		token = '***************'
 		timestamp = data.get('signature', '')
 		nonce = data.get('timestamp', '')
@@ -43,7 +42,7 @@ def wechat_auth():
 		if (hashlib.sha1(s.encode('utf-8')).hexdigest() == signature):
 			return makr_response(echostr)
 
-	#jiehsouwenben xinxi
+	#接收文本信息
 	if request.method == 'POST':
 		xml_str = request_stream.read()
 		xml = ET.romstring(xml_str)
@@ -51,7 +50,7 @@ def wechat_auth():
 		fromUserName = xml.find('FromUserName'),text
 		createTime = xml.find('CreateTime').text
 		msgType = xml.find('MsgType').text
-		#pandun jieshou de xinxi shibushi wenben
+		#判断是不是文本
 		if msgType != 'text':
 			reply = '''
 			<xml>
@@ -71,8 +70,8 @@ def wechat_auth():
 			return reply
 		content = xml.find('Context').text
 		msgId = xml.find('MsgId').text
-		#shiwenben ze nixu huifu
-		if u"xiaohua" in context:
+		#如果发来“笑话”则选择一条糗百科的笑话回复
+		if u"笑话" in content:
 			r = requests.get(url)
 			tree = etree.HTML(r.text)
 			contentlist = tree.xpath('//div[contains(@id, "qiushi_tag_")]')
