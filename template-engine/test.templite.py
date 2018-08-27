@@ -4,9 +4,8 @@ import re
 from templite import Templite, TempliteSyntaxError
 from unittest import TestCase
 
-# pylint: disable=W0612,E1101
-# Disable W0612 (Unused variable) and
-# E1101 (Instance of 'foo' has no 'bar' member)
+# python -m unittest test_templite
+
 
 class AnyOldObject(object):
     """Simple testing object.
