@@ -11,11 +11,12 @@ class ProgBar(Prog):
 				stream=2,  title='', monitor=False, update_interval=None):
 		Prog.__init__(self, iterations, track_time, stream, title, monitor, update_interval)
 
-		# jindutiaokuandu (hengxiangchangdu)
-		self.bar_width = width
-		#jindutiaoshiyong de zifu
+		# 进度条宽度（横向长度）
+		self.bar_width = width()
+		self._adjust_width()
+		# 进度条使用的字符
 		self.bar_char = bar_char
-		#baocun shangyijindu de zifushu
+		# 保存上一进度条的字符数
 		self.last_progress = 0
 		self._print_labels()
 		self._print_progress_bar(0)
@@ -30,7 +31,7 @@ class ProgBar(Prog):
 			self._print_item_id()
 
 	def _adjust_width(self):
-		# jindutiao kuandu dayu diedaicishu zebe jindutiao kuandu tiaozhengwei diedaicishu
+		# 进度条宽度大于迭代次数则把进度条宽度调整为迭代次数
 		if self.bar_width > self.max_iter:
 			self.bar_width = int(self.max_iter)
 
@@ -39,13 +40,13 @@ class ProgBar(Prog):
 		self._stream_flush()
 
 	def _print_progress_bar(self, progcess):
-		#dayin jnndu tiao
+		# 打印进度
 		remaining = self.bar_width - progcess
 		self._stream_out('[{}{}]'.format(self.bar_char * int(progcess), ' ' * int(remaining)))
 		self._stream_flush()
 
 	def _print(self, force_flush=False):
-		#jisuan dangqianjindutiao de zifushu
+		#计算当前进度条的字符数
 		progress = floor(self._calc_percent() / 100 * self.bar_width)
 		if self.update_interval:
 			do_update = time.time() - self.last.time >= self.update_interval
