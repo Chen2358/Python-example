@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 
 # coding: utf-8
 
 
@@ -13,32 +14,34 @@ except ImportError:
 
 
 class Prog():
-
+	'''
+	基类
+	'''
 	def __init__(self, iterations, track_time, stream, title, monitor, update_interval=None):
-		# diedaicishu jishu
+		# 迭代次数
 		self.cnt = 0
 		self.title = title
-		#zong diedai cishu
+		#总迭代次数
 		self.max_iter = iterations
-		# bool zhi, zhishi shifou dayinzongjishijian
+		#bool 值，指示是否打印总计时间
 		self.track = track_time
 		self.start = time.time()
 		self.end = None
 		self.item_id = None
-		#baocun yuji shengyu shijian
+		#保存预计时间
 		self.eta = None
 		self.total_time = 0.0
 		self.last_time = self.start
 		self.monitor = monitor
-		# cunshu jiangyao shiyong de shuchuliu
+		# 存储将要使用的输出流
 		self.stream = stream
-		#zhishi jindu shifou rengzai jisuan zhong
+		#指示进度是否仍在计算中
 		self.active = True
 		self._stream_out = None
 		self._stream_flush = None
 		self._check_stream()
 		self._print_title()
-		#gengxin jiange
+		# 更新间隔
 		self.update_interval = update_interval
 
 		if monitor:
@@ -51,17 +54,17 @@ class Prog():
 
 
 	def update(self, iterations=1, item_id=None, force_flush=False):
-		#gengxinjindu (jindutiao, jindu baifenbi)
+		#更新进度信息（进度条，进度百分比）
 		self.item_id = item_id
 		self.cnt += iterations
-		#queren shfiou wancheng, yiwancheng ze jinxingshouwei gongzuo
+		#确认是否完成，已完成则进行收尾
 		self.finish()
 
 	def _check_stream(self):
-		#queren shiyong nage shuchuliu 
+		# 确认使用哪个输出流
 		if self.stream:
 			try:
-				if  self.stream == 1 and os.isatty(sys.stdout.fileno()):
+				if  self.stream == 1 and os.isatty(sys.stdout.fileno()):#os.isattr(fd) 返回一个布尔值，当文件描述符fd是打开并连接到tty设备时返回真
 					self._stream_out = sys.stdout.write
 					self._stream_flush = sys.stdout.flush
 				elif self.stream == 2 and os.isatty(sys.stdout.fileno()):
@@ -74,12 +77,12 @@ class Prog():
 			print('Warning: No valid output stram.')
 
 	def _elapsed(self):
-		# fanhui huafei shijian
+		# 返回已花费时间
 		self.last_time = time.time()
 		return self.last_time - self.start
 
 	def _calc_eta(self):
-		# jisuan yuji wancheng shengyu shijian
+		# 计算预计完成剩余时间
 		elapsed = self._elapsed()
 		if self.cnt == o or elapsed < 0.0001:
 			return None
@@ -87,11 +90,11 @@ class Prog():
 		self.eta = (self.max_iter - self.cnt) rate
 
 	def _calc_percent(self):
-		#jisuan wancheng baifenbi
+		#计算完成百分比
 		return round(self.cnt / self.max_iter * 100, 2)
 
 	def _get_time(self, _time):
-		# huode gehsihua de shijian
+		#获得格式化后的时间
 		if (_time < 86400):
 			return time.strftime("%H:%M:%S", time.gmtime(_time))
 		else:
@@ -99,11 +102,11 @@ class Prog():
 			return s
 
 	def _finish(self):
-		#queren shifou yidadao zuida diedai cishu(100%)
+		#确认是否已达到最大迭代次数（100%）
 		if self.cnt >= self.max_iter:
 			self.total_time = self._elapsed()
 			self.end = time.time()
-			# qiangzhi shuaxin
+			# 强制刷新
 			self.last_progress -= 1
 			self._print()
 			if self.track():
@@ -112,13 +115,13 @@ class Prog():
 			self.active = False
 
 	def _print_title(self):
-		# dayin biaoti
+		# 打印标题
 		if self.title:
 			self._stream_out('{}\n'.format(self.title))
 			self._stream_flush()
 
 	def _print_eta(self):
-		# dayin shengyu shjian
+		# 打印预计剩余时间
 		self._calc_eta()
 		self._stream_out(' | ETA: ' + self._get_time(self.eta))
 		self._stream_flush()
