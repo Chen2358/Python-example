@@ -9,7 +9,7 @@ class ProgPercent(Prog):
 				stream=2,  title='', monitor=False, update_interval=None):
 		Prog.__init__(self, iterations, track_time, stream, title, monitor, update_interval)
 
-		#baocun shangyijindu baifenbi
+		# 保存上一进度百分比
 		self.last_progress = 0
 		self._print()
 		if monitor:
