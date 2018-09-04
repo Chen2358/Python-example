@@ -42,7 +42,7 @@ def execute(cmd_tokens):
 		cmd_args = cmd_tokens[1:]
 		if cmd_name in built_in_cmds:
 			return built_in_cmds[cmd_name](cmd_args)
-		signal.signal(signal.SIGNAL, handler_kill)
+		signal.signal(signal.SIGINT, handler_kill)
 		if platform.system() != "Windows":
 			p = subprocess.Popen(cmd_tokens)
 			p.communicate()
@@ -53,7 +53,7 @@ def execute(cmd_tokens):
 	return SHELL_STATUS_RUN
 
 
-def dispaly_cmd_prompt():
+def display_cmd_prompt():
 	user = getpass.getuser()
 	hostname = socket.gethostname()
 	cwd = os.getcwd()
@@ -71,10 +71,10 @@ def dispaly_cmd_prompt():
 def ignore_signals():
 	if platform.system() != "Windows":
 		signal.signal(signal.SIGTSTP, signal.SIG_IGN)
-	signal.signal(signal.SIGNAL, signal.SIG_IGN)
+	signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 
-def shell_loop:
+def shell_loop():
 	status = SHELL_STATUS_RUN
 
 	while status == SHELL_STATUS_RUN:
@@ -85,7 +85,7 @@ def shell_loop:
 		ignore_signals()
 		try:
 			#
-			cmd = sys.stdin.readlline()
+			cmd = sys.stdin.readline()
 
 			#
 			cmd_tokens = tokenize(cmd)
