@@ -1,3 +1,3 @@
 # Python-example
 
-Here are some projects of python
+练习敲代码~~
