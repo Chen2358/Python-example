@@ -1,8 +1,13 @@
 1、shlex 模块
+
 shlex.split(string):将string 按shell 的语法规则进行分割
+
+
 2、getpass 模块
 （1）getpass.getuser()：获取当前用户名
 （2）socket.gethostname：获取当前主机名
+
+
 3、signal 模块
 
 signal 模块是 Python 内部的信号处理模块，用于解决程序内部信号处理。
@@ -13,11 +18,13 @@ signal.SIGTSTP 表示任务中断信号，可由组合键 Ctrl-Z 产生，属于
 signal.SIGINT 表示强制中断信号，可由组合键 Ctrl-C 产生。
 
 4、subprocess 模块
+
+
 5、platform 模块
 
 提供获取操作系统信息的的方法
 
-7、使用转义字符使命令行字符高亮
+6、使用转义字符使命令行字符高亮
 转义序列以控制字符 'ESC' 和左括号 '[' 开头，该起始序列称为控制序列引导符，通常由 \033 代替。
 而通过转义序列设置终端显示属性的格式为：
 
