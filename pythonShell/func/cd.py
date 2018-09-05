@@ -1,5 +1,6 @@
 from .constants import *
 
+#cd 命令
 def cd(args):
 	if len(args) > 0:
 		os.chdir(args[0])
