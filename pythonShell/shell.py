@@ -30,32 +30,47 @@ def preprocess(tokens):
 	processed_token = []
 	for token in tokens:
 		if token.startswith('$'):
+			# os.getenv() 用于获取环境变量的值
+			#变量不存在则返回空
 			processed_token.append(os.getenv(token[1:]))
 		else:
 			processed_token.append(token)
 	return processed_token
 
-
+#自定义的信号处理函数，当当前进程被强制中断时触发
 def handler_kill(signum, frame):
 	raise OSError("Killed!")
 
-
+#执行命令
 def execute(cmd_tokens):
 	with open(HISTORY_PATH, 'a') as history_file:
 		history_file.write(' '.join(cmd_tokens) + os.linesep) #各命令组成部分以空格连接并且最后命令以换行结尾
 	if cmd_tokens:
+		#获取命令
 		cmd_name = cmd_tokens[0]
+		#获取命令参数
 		cmd_args = cmd_tokens[1:]
+		#如果当前命令在命令表中则传入参数，执行相应的函数
 		if cmd_name in built_in_cmds:
 			return built_in_cmds[cmd_name](cmd_args)
+		#监听Ctrl-C 信号
 		signal.signal(signal.SIGINT, handler_kill)
+		
+		#如果当前系统不是 Windows则创建子进程
 		if platform.system() != "Windows":
+			#Unix 平台调用子进程执行命令
 			p = subprocess.Popen(cmd_tokens)
+			
+			#父进程从子进程读取数据，直到读到 EOF
+			#此处主要用来等待子进程终止运行
 			p.communicate()
 		else:
+			#Windows 平台
 			command = ""
 			command = ' '.join(cmd_tokens)
+			#执行命令
 			os.system(command)
+	#返回状态
 	return SHELL_STATUS_RUN
 
 #打印命令提示符
