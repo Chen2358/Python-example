@@ -36,7 +36,7 @@ def handler_kill(signum, frame):
 
 def execute(cmd_tokens):
 	with open(HISTORY_PATH, 'a') as history_file:
-		history_file.write(' '.join(cmd_tokens) + os.linesep)
+		history_file.write(' '.join(cmd_tokens) + os.linesep) #各命令组成部分以空格连接并且最后命令以换行结尾
 	if cmd_tokens:
 		cmd_name = cmd_tokens[0]
 		cmd_args = cmd_tokens[1:]
