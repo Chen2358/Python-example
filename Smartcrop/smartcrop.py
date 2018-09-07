@@ -97,6 +97,7 @@ def isolateUnique(image, edges):
 def main(argv):
 	#
 	face_cascade = cv2.CascadeClassifier(
+		# shiyongjuedui lujing
 		'/usr/local/share/OpenCV/harrcascades/harrcascade_frontalface_alt.xml')
 	eye_cascade = cv2.CascadeClassifier(
 		'/usr/local/share/OpenCV/harrcascades/harrcascade_eye.xml')
@@ -129,13 +130,92 @@ def main(argv):
 	#
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 	#
-	faces = face_cascade.detecMultiScale(
+	faces = face_cascade.detectMultiScale(
 		gray,
 		scaleFactor=1.1,
 		minNeighbors=5,
 		minSize=(30, 30),
 		flags=cv2.CASCADE_SCALE_IMAGE)
 	#
-	edgeREF = detectEdges(img)
+	edgeRef = detectEdges(img)
+
+	isolateUnique(img, edgeRef)
+	#
+	maxFaceCenter = 0
+	#
+	maxFaceRight = 0
+	print("Found {0} faces!".format(len(faces)))
+
+	#
+	imHeight,imWidth=img.shape[:2]
+	cropBias = imWidth
+	for (x, y, w, h) in faces:
+		#
+		cv2.rectangle(img, (x, y), (x + w,y + h), (255, 255, 255), -1)
+		cropBias= cropBias - x
+		#
+		if (x + w) > maxFaceRight:
+			maxFaceCenter = (x + w) - (w // 2)
+			maxFaceRight = x + w
+		#
+		roi_gray = gray[y:y + h, x:x + w]
+		roi_color = img[y:y + h, x:x + w]
+		#
+		eyes = eye_cascade.detectMultiScale(roi_gray)
+		#
+		for (ex, ey, ew, eh) in eyes:
+			cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
+	#
+	cropBiasPerc = cropBias / imWidth
+	#
+	ratio= int(height) / img.shape[0]
+	height = img.shape[0]
+
+	middleY = 0
+	newRatio = height / int(orgHeight)
+	width = round(int(width) * newRatio)
+	rawCols =match.ceil(img.shape[1] / width)
+
+	mostPosIndex = 0
+	bestPosValue = 0
+	for i in range(rawCols):
+		positiveCount = 0
+		startx = i * width
+		endx =startx + width
+		endx = img.shape[1] if endx > img.shape[1] else endx
+		for col in range(startx, endx):
+			for row in range(img.shape[0]):
+				pxval = img[row][col][0] + img[row][col][1] + img[row][col][2]
+
+				if pxval > 0:
+					positiveCount = positiveCount + 1
+		if positiveCount> bestPosValue:
+			mostPosIndex = i
+			bestPosValue = positiveCount
+		print(i, positiveCount)
+	print("Best Index: ", str(mostPosIndex))
+	middleX =mostPosIndex * width
+
+	if middleX + width > img.shape[1]:
+		middleX = img.shape[1] - width
+
+	cv2.rectangle(img, (middleX, middleY),
+					(middleX + width, middleY + height), (0, 255, 0),
+					2)
+
+	cropped = copy.copy(original)
+	copyName = "ref_" + outputFile
+	croppedName = "cropped_" + outputFile
+	cropX1 = middleX + width
+	cropY1 =middleY + height
+	croppedData =original[middleY:cropY1, middleX:cropX1]
+
+	cv2.imwrite(copyName, original)
+	cv2.imwrite(croppedName, croppedData)
+	cv2.imwrite(outputFile, img)
+
+if __name__ == '__main__':
+	main(sys.argv[1:])
+
 	
 
