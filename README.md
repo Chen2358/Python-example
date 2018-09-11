@@ -1,3 +1,3 @@
 # Python-example
 
-练习敲代码~~
+人生苦短，我用Python~~
