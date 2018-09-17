@@ -21,6 +21,7 @@ WIDTH = args.width
 HEIGHT = args.height
 OUTPUT = args.output
 
+#使用的字符集，字符的种类和数量可根据不同的字符画调试
 ascii_char = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
 
 # 将256灰度映射到70个字符上
