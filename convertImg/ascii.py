@@ -1,11 +1,5 @@
-# -*- coding:utf-8 -*-
 #!/usr/bin/env python3
-
-'''
-1、将图片转换为字符画
-2、使用
-python3 ascii.py ascii.dora.png
-'''
+# -*- coding:utf-8 -*-
 
 
 from PIL import Image
