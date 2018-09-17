@@ -3,6 +3,11 @@
 
 '''
 尝试暴力破解zip文件
+1、zipfile模块是python中自带的模块，提供了对zip文件的创建读、写、追加、解压以及列出zip文件列表的工具；
+2、argparse模块来解析命令行参数
+运行 
+python3 decodeZip.py -f 1.zip -w pwd.txt
+
 '''
 
 import zipfile
@@ -23,6 +28,7 @@ def tryZipPwd(zipFile, password, savePath):
 def main():
 	#创建 ArgumentParser对象
 	parser = argparse.ArgumentParser(description='Burte Crack Zip')
+	#添加参数
 	parser.add_argument('-f', dest='zFile', type=str, help='The zip file path.')
 	parser.add_argument('-w', dest='pwdFile', type=str, help='password dictionary file.')
 	zFilePath = None
