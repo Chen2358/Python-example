@@ -14,10 +14,12 @@ class Action(object):
 	RIGHT = 'right'
 	RESTART = 'restart'
 	EXIT = 'exit'
-
+	
+	# 有效输入
 	letter_codes = [ord(ch) for ch in 'WASDRQwasdrq']
 	#用户行为
 	actions = [UP, LEFT, DOWN, RIGHT, RESTART, EXIT]
+	#将输入与行为关联
 	actions_dict = dict(zip(letter_codes, actions * 2))
 
 	def __init__(self, stdscr):
