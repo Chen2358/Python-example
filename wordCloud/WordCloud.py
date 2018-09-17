@@ -22,19 +22,19 @@ mask =np.array(Image.open(path.join(d, "stormtrooper_mask.png")))
 
 text = open('santi.txt','r', encoding='gbk').read()
 
-#
-text = text.replace("chengxinshuo", "chengxin")
-text = text.replace("chengxinhe","chengxin")
-text = text.replace("chengxinwen","chengxin")
+#处理文本，替换
+text = text.replace("程心说", "程心")
+text = text.replace("程心和","程心")
+text = text.replace("程心问","程心")
 
-#
+#添加停止词
 stopwords =set(STOPWORDS)
 stopwords.add("int")
 stopwords.add("ext")
 
 wc = WordCloud(font_path=font, max_words=2000, mask=mask, stopwords=stopwords, margin=10, random_state=1).generate(text)
 
-#
+#存储默认彩色图像
 default_colors= wc.to_array()
 plt.title("Custom colors")
 plt.imshow(wc.recolor(color_func=grey_color_func, random_state=3))
