@@ -7,7 +7,7 @@
 def lines(file):
 	#生成器，在文本最后加一空行
 	for line in file: yield line
-	yield '\n'
+	yield '\n'     # yield() 返回一个生成器
 
 def blocks(file):
 	#生成器，生成单独的文本块
@@ -16,5 +16,5 @@ def blocks(file):
 		if line.strip():
 			block.append(line)
 		elif block:
-			yield ''.join(block).strip()
+			yield ''.join(block).strip() 
 			block = []
