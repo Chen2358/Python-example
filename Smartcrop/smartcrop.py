@@ -8,24 +8,24 @@ import getopt
 import math
 
 
-#
+#使用Canny 算法检测便捷
 def detectEdges(image):
 	edges = cv2.Canny(image, 100, 100)
-	#
+	#保存图片
 	cv2.imwrite("edges.jpg", edges)
 	return edges
 
 
 def isolateUnique(image, edges):
-	#
+	#纵向分割为64 个块
 	blocksize = 64
-	#
+	#方差阈值
 	varianceThreshold = 95
-	#
+	#设定每一块的边长，shape[1]为图片宽度
 	cellPx = image.shape[1] // blocksize
 	rows = image.shape[0] // cellPx
 	cols = blocksize
-	#
+	#每一块的像素数量
 	blockPx = cellPx * cellPx
 	cellValues = [0] * (rows)
 	imgR = 0
@@ -60,12 +60,11 @@ def isolateUnique(image, edges):
 			bv = int(b / blockPx)
 			value = [rv, gv, bv] if hasEdgs == True else [0, 0, 0]
 			cellValues[i][j] = value
-			#
+			#绘制实心矩形
 			cv2.rectangle(image, (cbeg, rbeg), (cend, rend), (rv, gv, bv), -1)
 	avgR = imgR // imgCells
 	avgG = imgG // imgCells
 	avgB = imgB // imgCells
-	#
 	cv2.rectangle(image, (0, 0), (image.shape[1], image.shape[0]), (0, 0, 0), -1)
 
 	for i in range(len(cellValues)):
@@ -95,7 +94,7 @@ def isolateUnique(image, edges):
 
 
 def main(argv):
-	#
+	#加载训练好的脸、眼分类器
 	face_cascade = cv2.CascadeClassifier(
 		# shiyongjuedui lujing
 		'/usr/local/share/OpenCV/harrcascades/harrcascade_frontalface_alt.xml')
@@ -107,7 +106,7 @@ def main(argv):
 	width = 300
 	height = 300
 	blocksize = 64
-	#
+	#处理命令行参数
 	opts, args = getopt.getopt(argv, "hi:o:x:y:b:", ["file=", "ofile="])
 	for opt, arg in opts:
 		if opt == '-i':
@@ -125,49 +124,48 @@ def main(argv):
 	orgHeight = height
 	orgWidth = width
 	img = cv2.imread(inputFile)
-	#
+	#返回img 的浅拷贝
 	original = copy.copy(img)
-	#
+	#转换为灰度图
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	#
+	#检测人脸
 	faces = face_cascade.detectMultiScale(
 		gray,
 		scaleFactor=1.1,
 		minNeighbors=5,
 		minSize=(30, 30),
 		flags=cv2.CASCADE_SCALE_IMAGE)
-	#
+	#检测边缘
 	edgeRef = detectEdges(img)
 
 	isolateUnique(img, edgeRef)
-	#
+	#最大脸的中心位置
 	maxFaceCenter = 0
-	#
+	#最大脸的右端位置
 	maxFaceRight = 0
 	print("Found {0} faces!".format(len(faces)))
 
-	#
+	#裁剪定位
 	imHeight,imWidth=img.shape[:2]
 	cropBias = imWidth
 	for (x, y, w, h) in faces:
-		#
+		#人脸部分用白色实心矩形框选
 		cv2.rectangle(img, (x, y), (x + w,y + h), (255, 255, 255), -1)
 		cropBias= cropBias - x
-		#
+		#找出最大人脸
 		if (x + w) > maxFaceRight:
 			maxFaceCenter = (x + w) - (w // 2)
 			maxFaceRight = x + w
-		#
+		#截出人脸
 		roi_gray = gray[y:y + h, x:x + w]
 		roi_color = img[y:y + h, x:x + w]
-		#
+		#检测眼镜
 		eyes = eye_cascade.detectMultiScale(roi_gray)
-		#
+		#框选出人眼
 		for (ex, ey, ew, eh) in eyes:
 			cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
-	#
+	#裁剪偏差精度
 	cropBiasPerc = cropBias / imWidth
-	#
 	ratio= int(height) / img.shape[0]
 	height = img.shape[0]
 
