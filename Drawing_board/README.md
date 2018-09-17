@@ -51,3 +51,7 @@ MOUSEBUTTONDOWN	    鼠标按键按下
 MOUSEMOTION	        鼠标移动
 
 MOUSEBUTTONUP	      鼠标按键松开
+
+运行
+
+python3 Board.py
