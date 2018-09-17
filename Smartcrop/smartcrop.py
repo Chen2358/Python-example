@@ -166,6 +166,7 @@ def main(argv):
 			cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
 	#裁剪偏差精度
 	cropBiasPerc = cropBias / imWidth
+	#比率
 	ratio= int(height) / img.shape[0]
 	height = img.shape[0]
 
