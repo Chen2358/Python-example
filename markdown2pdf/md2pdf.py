@@ -240,7 +240,6 @@ or input[3:6] == "c++" or input[3:4] == "c") and block_state == BLOCK.Init:
 
 
 
-
 def parse(input):
 	global block_state, is_normal
 	is_normal =True
@@ -298,8 +297,6 @@ def parse(input):
 
 
 
-
-
 def run(source_file, dest_file, dest_pdf_file,only_pdf):
 	#获取文件名
 	file_name = source_file
@@ -353,10 +350,6 @@ def run(source_file, dest_file, dest_pdf_file,only_pdf):
 		#如果需要删除中间过程生成的 HTML 文件
 		if only_pdf:
 			call(["rm", dest_name])
-
-
-	
-
 
 
 
