@@ -18,4 +18,4 @@ python3 md2pdf.py doc_template.md -p template.pdf
 
 扩展
 
-使用命令 wkhtmltopdf [url] [outputfile] 即可完成将网页转化为PDF打印。比如 wkhtmltopdf https://www.shiyanlou.com shiyanlou.pdf
+使用命令 wkhtmltopdf [url] [outputfile] 即可完成将网页转化为PDF打印。比如 wkhtmltopdf https://www.baidu.com baidu.pdf
