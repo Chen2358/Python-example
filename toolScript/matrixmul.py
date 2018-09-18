@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8-*-
 #[int(x) for x in input().split()] 首先通过 input() 获得用户输入的字符串，再使用 split() 分割字符串得到一系列的数字字符串，然后用 int() 从每个数字字符串创建对应的整数值
 
 
