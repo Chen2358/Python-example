@@ -4,4 +4,6 @@
 
 使用
 
-import 
+import checkPwdandEmail
+
+checkPwdandEmail.password('123')
