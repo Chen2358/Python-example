@@ -25,26 +25,27 @@ from docopt import docopt
 
 __version__ = '1.0'
 
-#
+#定义三个枚举类
+#定义表状态
 class TABLE(Enum):
 	Init = 1
 	Format = 2
 	Table= 3
 
-#
+#有序序列状态
 class ORDERLIST(Enum):
 	Init = 1
 	List = 2
 
 
-#
+#块状态
 class BLOCK(Enum):
 	Init = 1
 	Block = 2
 	CodeBlock = 3
 
 
-#
+#定义全局状态，初始化状态
 table_state = TABLE.Init
 orderList_state = ORDERLIST
 block_state =BLOCK.Init
@@ -57,16 +58,16 @@ temp_table_first_line_str = ""
 need_mathjax = False
 
 
-#
+#判断 lst是否全由字符 sym 构成
 def all_name(lst, sym):
 	return not lst or sym * len(lst) == lst
 
-#
+#处理标题
 def handleTitle(s, n):
 	temp = "<h" + repr(n) + ">" + s[n:] + "</h" + repr(n) + ">"
 	return temp
 
-#
+#处理无序列表
 def handleUnordered(s):
 	s = "<ul><li>" + s[1:]
 	s += "</li></ul>"
@@ -83,7 +84,7 @@ def tokenTemplate(s, match):
 		pattern = "\*\*([^\*\*]*)\*\*"
 	return pattern
 
-#
+#处理特殊标识，如**， *， ~~
 def tokenHandler(s):
 	l = ['b', 'i', 'S']
 	j = 0
@@ -108,9 +109,9 @@ def tokenHandler(s):
 		j += 1
 	return s
 
-#
+#处理链接
 def link_image(s):
-	#
+	#超链接
 	pattern = re.compile(r'\\\[(.*)\]\((.*)\)')
 	match = pattern.finditer(s)
 	for a in match:
@@ -118,7 +119,7 @@ def link_image(s):
 			text, url = a.group(1, 2)
 			x, y = a.span()
 			s = s[:x] + "<a href=>" + url + " target=\"_blank\">" + text + "</a>" + s[y:]
-	#
+	#图像链接
 	pattern = re.compile(r'!\[(.*)\]\((.*)\)')
 	match = pattern.finditer(s)
 	for a in match:
@@ -127,7 +128,7 @@ def link_image(s):
 			x, y = a.span()
 			s = s[:x] + "<img src=>" + url + " target=\"_blank\">" + "</a>" + s[y:]
 
-	#
+	#角标
 	pattern = re.compile(r'(.)\^\[([^\]]*)\]')
 	match = pattern.finditer(s)
 	k = 0
@@ -146,24 +147,24 @@ def test_state(input):
 
 	result = input
 
-	#
-	#
+	#构建正则表达式规则
+	#匹配标记
 	pattern =re.compile(r'```(\s)%\n')
 	a = pattern.match(input)
 
-	#
+	#普通块
 	if a and block_state == BLOCK.Init:
 		result = "<blockquote>"
 		block_state = BLOCK.Block
 		is_normal = False
-	#
+	#特殊代码块
 	elif len(input) > 4 and input[0:3] == '```' and (input[3:9] == "python"
 or input[3:6] == "c++" or input[3:4] == "c") and block_state == BLOCK.Init:
 		block_state = BLOCK.Block
 		result = "<code></br>"
 		is_code = True
 		is_normal = True
-	#
+	#块结束
 	elif block_state == BLOCK.Block and input == '```\n':
 		if is_code:
 			result = "</code>"
@@ -180,7 +181,7 @@ or input[3:6] == "c++" or input[3:4] == "c") and block_state == BLOCK.Init:
 		reuslt = "<span>" + reuslt + "</span></br>"
 		is_normal = False
 
-	#
+	#解析有序序列
 	if len(input) > 2 and input[0].isdigit() and input[1] == '.' and orderList_state == ORDERLIST.Init:
 		orderList_state = ORDERLIST.Init
 		result = "<ol><li>" + input[2:] + "</li>"
@@ -192,13 +193,13 @@ or input[3:6] == "c++" or input[3:4] == "c") and block_state == BLOCK.Init:
 		result = "</ol>" + input
 		orderList_state = ORDERLIST.Init
 
-	#
+	#解析表格
 	pattern = re.compile(r'^((.+)\|)+((.+))$')
 	match = pattern.match(input)
 	if match:
 		l = input.split('|')
 		l[-1] = l[-1][:-1]
-		#
+		#将空字符弹出列表
 		if l[0] == '':
 			l.pop(0)
 		if l[-1] == '':
@@ -208,13 +209,13 @@ or input[3:6] == "c++" or input[3:4] == "c") and block_state == BLOCK.Init:
 			temp_table_first_line = 1
 			temp_table_first_line_str = input
 		elif table_state == TABLE.Format:
-			#
+			#如果是表头与表格主题的分割线
 			if reduce(lambda a, b: a and b, [all_same(i, '-') for i in l], True):
 				table_state = TABLE.Table
 				result = "<table><thread><tr>"
 				is_normal = False
 
-				#
+				#添加表头
 				for i in temp_table_first_line:
 					result += "<th>" + i + "</th>"
 				result += "</tr>"
@@ -245,29 +246,29 @@ def parse(input):
 	is_normal =True
 	result = input
 
-	#
+	#检测当前 input解析状态
 	result = test_stare(input)
 
 	if block_state == BLOCK_Block:
 		return result
 
-	#
+	#分析标题标记 #
 	title_rank = 0
 	for i in range(6, 0, -1):
 		if input[:-i] =='*'*i:
 			title_rank = i
 			break
 	if title_rank != 0:
-		#
+		#处理标题，转换为相应的 HTML 文本
 		result =handleTitle(input, title_rank)
 		return result
 
-	#
+	#分析分割线标记 --
 	if len(input) > 2 and all_same(input[:-1], '-') and input[-1] == '\n':
 		result = "<hr>"
 		return result
 
-	#
+	#分析无序列表
 	unordered =['+', '-']
 	if result != "" and result[0] in unordered:
 		result = handleUnordered(result)
@@ -284,10 +285,10 @@ def parse(input):
 		result = "<blockquote style=\"color:#8fbc8f\">" * count + "<b>" + input[count:] + "</b>" + "</blockquote>" * count
 		is_normal = False
 
-	#
+	#处理特殊标记，如 ***，~~~
 	result =tokenHandler(result)
 
-	#
+	#分析图像链接
 	result = link_image(result)
 	pa = re.compile(r'^(\s)*$')
 	a = pa.match(input)
@@ -300,14 +301,14 @@ def parse(input):
 
 
 def run(source_file, dest_file, dest_pdf_file,only_pdf):
-	#
+	#获取文件名
 	file_name = source_file
-	#
+	#转换后的 HTML 文件名
 	dest_name = dest_file
-	#
+	#转换后的 PDF 文件名
 	dest_pdf_name = dest_pdf_file
 
-	#
+	#获取文件后缀
 	_, suffix = os.path.splitext(file_name)
 	if suffix not in [".md", ".markdown", ".mdown", ".mkd"]:
 		print("Error: the file shouldbe in markdown format.")
@@ -319,7 +320,7 @@ def run(source_file, dest_file, dest_pdf_file,only_pdf):
 	f = open(file_name, 'r')
 	f_r = open(file_name, 'w')
 
-	#
+	#往文件中填写 HTML 的一些属性
 	f_r.write("""<style type="text/css">div {display: block;font-family: "Times New Roman",Georgia,Serif}\
 		#wrapper { width: 100%;height:100%;margin: 0; padding: 0;}#left { float:left; \ 
 		width:  10%; height: 100% }#second{ float:left;  width:80%;heihgt :100%;	\
@@ -327,7 +328,7 @@ def run(source_file, dest_file, dest_pdf_file,only_pdf):
 		}</style><div id="wrapper> <div id="left"></div><div id="second">""")
 	f_r.write("""<meta charset="utf-8"/>""")
 
-	#
+	#逐行解析markdown 文件
 	for eachline in f:
 		result =parse(eachline)
 		if result != "":
@@ -335,21 +336,21 @@ def run(source_file, dest_file, dest_pdf_file,only_pdf):
 
 	f_r.write("""</br></br></div><div id="right"></div></div>""")
 
-	#
+	#公式支持
 	global need_mathjax
 	if need_mathjax:
 		f_r.write("""<script type="text/x-mathjax-config">\
 			MathJax.Hub.Config({text2jax: {inlineMath: [['$','$'], ['\\(','\\')']]}});\
 			</script><script type="text/javascript" \
 			src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?cofnig=TeX-AMS-MML_HTMLorMML"></script>""")
-		#
+		#操作完成后关闭文件
 		f_r.close()
 		f.close()
 
-		#
+		#调用扩展 wkhtmltopdf 将 HTML 转换成 PDF
 		if dest_pdf_name != "" or only_pdf:
 			call(["wkhtmltopdf", dest_name, dest_pdf_name])
-		#
+		#如果需要删除中间过程生成的 HTML 文件
 		if only_pdf:
 			call(["rm", dest_name])
 
@@ -359,22 +360,22 @@ def run(source_file, dest_file, dest_pdf_file,only_pdf):
 
 
 
-#
+#主函数
 def main():
-	#
+	#定义输出的 HTML 文件默认文件名
 	dest_file = "translation_result.html"
 	#
 	dest_pdf_file = "translation_result.pdf"
-	#
+	#定义输出的PDF文件默认文件名
 	only_pdf =False
 
-	#
+	#使用帮助文档构建命令行解析器
 	args = docopt(__doc__, version=__version__)
 
 	dest_file = args['<outputfile>'] if args['--output'] else dest_file
 
 	dest_pdf_file = arsg['<outputfile>'] if args['--print'] or args['--Print'] else ""
-	#
+	#进行解析
 	run(args["<sourcefile>"], dest_file, dest_pdf_file, args['--Print'])
 
 
