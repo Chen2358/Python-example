@@ -6,12 +6,13 @@ import json
 
 __all__ = ['password']
 
+#规定特征
 NUMBER = re.compile(r'[0-9]')
 LOWER_CASE = re.compile(r'[a-z]')
 UPPER_CASE = re.compile(r'[A-Z]')
 OTHERS = re.compile(r'[^0-9a-zA-Z]')
 
-#
+#检测常用密码
 def load_common_password():
 	words = []
 	with open('10k_most_common.txt', 'rb') as f:
@@ -23,7 +24,7 @@ COMMON_WORDS = load_common_password()
 
 
 class Strength:
-
+	#定义密码强度
 	def __init__(self, valid, strength, message):
 		self.valid = valid
 		self.strength = strength
