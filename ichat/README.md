@@ -15,4 +15,5 @@ opencv-python 3.4.1.15
 numpy 1.14.5
 
 PyAudio 0.2.11
+https://people.csail.mit.edu/hubert/pyaudio/docs/
 
