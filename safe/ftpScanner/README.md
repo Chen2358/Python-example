@@ -26,7 +26,7 @@ FTP服务器的控制端口是21，数据端口是20，所以在做静态映射�
 
 parser = argparse.ArgumentParser(description = 'FTP Scanner')
 
-#添加-H命令dest可以理解为咱们解析时获取-H参数后面值的变量名,help是这个命令的帮助信息
+#添加-H 命令，dest表示解析时获取-H参数后面值的变量名，help表示帮助信息
 
 parser.add_argument('-H',dest='hostName',help='The host list with ","space')
 
