@@ -9,7 +9,7 @@ import sys
 import thread
 from socket import *
 
-
+#测试TCP端口连接
 def tcp_test(port):
 	sock = socket(AF_INET, SOCK_STREAM)
 	sock.settimeout(10)
@@ -31,4 +31,10 @@ if __name__ == '__main__':
 	lock = thread.allocate_lock()
 
 	for port in range(start_port, end_port):
-		thread.start_new_thread(tcp_test, (port,))
+		thread.start_new_thread(tcp_test, (port,))	#创建一个线程
+		
+		
+另
+python-nmap 是可以在Python中使用nmap端口扫描器的包
+sudo apt-get install namp python-nmap
+https://xael.org/pages/python-nmap-en.html
