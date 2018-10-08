@@ -36,12 +36,12 @@ class TrainsCollection:
             duration = raw_train_list[10]
             if not self.options or initial in self.options:
                 train = [
-                    train_no,#
+                    train_no,#班次，上色：出发车站和出发时间显示为绿色，到达车站和到达时间显示为红色
                     '\n'.join([Fore.LIGHTGREEN_EX + self.available_place[raw_train_list[6]] + Fore.RESET,
                                Fore.LIGHTRED_EX + self.available_place[raw_train_list[7]] + Fore.RESET]),#始发站
                     '\n'.join([Fore.LIGHTGREEN_EX + raw_train_list[8] + Fore.RESET,
                                Fore.LIGHTRED_EX + raw_train_list[9] + Fore.RESET]),#终点站
-                    duration,#
+                    duration,#时长
                     raw_train_list[-6] if raw_train_list[-6] else '--',# 一等 
                     raw_train_list[-7] if raw_train_list[-7] else '--',# 二等 
                     raw_train_list[-15] if raw_train_list[-15] else '--',# 高级软卧
@@ -61,7 +61,7 @@ class TrainsCollection:
 
 
 def cli():
-    """command-line interface"""
+    """命令行接口"""
     arguments = docopt(__doc__)
     from_station = stations.get(arguments['<from>'])
     to_station = stations.get(arguments['<to>'])
