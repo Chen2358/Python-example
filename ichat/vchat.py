@@ -77,7 +77,7 @@ class Video_Client(threading.Thread):
 		else:
 			self.sock = socket(AF_INET6, SOCK_STREAM)
 		# self.cap = cv2.VideoCapture(0)
-		#从本次视频获取
+		#从本次视频获取，模拟摄像头的访问
 		self.cap = cv2.VideoCapture('test.mp4')
 
 	def __del__(self):
