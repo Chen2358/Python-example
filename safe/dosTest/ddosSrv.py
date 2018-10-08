@@ -7,14 +7,14 @@ from threading import Thread
 
 socketList = []
 
-#
-#
+#命令格式'#-H xxx.xxx.xxx.xxx -p xxxx -c <start|stop>'
+#发送命令
 def sendCmd(cmd):
 	print('Send command...')
 	for sock in socketList:
 		sock.send(cmd.encode('utf-8'))
 
-#
+#等待连接
 def waitConnect(s):
 	while True:
 		sock, addr = s.accept()
@@ -37,7 +37,7 @@ def main():
 		print('=' * 50)
 		print('The command format: "#-H xxx.xxx.xxx.xxx -p xxxx -c <start>"')
 
-		#
+		#等待输入命令
 		cmd_str = input('Please input cmd: ')
 		if len(cmd_str):
 			if cmd_str[0] == '#':
