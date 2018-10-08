@@ -76,8 +76,8 @@ def main():
 
 	while True:
 		if len(clientList) > 0:
-			select_client()			#
-			shell_ctrl(curClient[0], curClient[1]) 	#
+			select_client()					#选择一个client
+			shell_ctrl(curClient[0], curClient[1]) 		#处理shell命令
 
 if __name__ == '__main__':
 	main()
