@@ -15,3 +15,15 @@ $ 表示下一行数据长度，不包括换行符长度 \r\n, $ 后面则是对
 
 : 表示返回一个数值，：后面是相应的数字节符；
 
+2、环境配置
+$ mkdir project && cd project
+
+$ sudo pip3 install tornado==4.1
+
+$ wget http://labfile.oss.aliyuncs.com/courses/518/async-redis.tgz
+
+$ tar xvf async-redis.tgz
+
+$ cd async-redis
+
+$ sudo python3 setup.py install
