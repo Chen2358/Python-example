@@ -28,7 +28,7 @@ class Connection(object):
 	def __del__(self):
 		self.disconnect()
 
-	#
+	#连接到 Redis 服务器，使用tornado.iostream.IOStream 进行数据的读写工作
 	def connect(self):
 		if not self._stream:
 			try:
@@ -41,12 +41,12 @@ class Connection(object):
 			except socket.error as e:
 				raise ConnectionError(e.message)
 
-	#
+	#当stream 关闭时进行的操作
 	def on_stream_close(self):
 		if self._stream:
 			self.disconnect()
 
-	#
+	#关不连接
 	def disconnect(self):
 		if self._stream:
 			s = self._stream
@@ -58,7 +58,7 @@ class Connection(object):
 			except:
 				pass
 
-	#
+	#写数据
 	@gen.coroutine
 	def write(self, data):
 		if not self._stream:
@@ -71,7 +71,7 @@ class Connection(object):
 			self.disconnect()
 			raise ConnectionError(e.message)
 
-	#
+	#读数据
 	@gen.coroutine
 	def read(self, length):
 		try:
@@ -84,7 +84,7 @@ class Connection(object):
 			self.disconnect()
 			raise Connection(e.message)
 
-	#
+	#读取一行数据
 	@gem.coroutine
 	def read_line(self):
 		try:
@@ -97,7 +97,7 @@ class Connection(object):
 			self.disconnect()
 			raise Connection(e.message)
 
-	#
+	#是否已经连接
 	def connected(self):
 		if self._stream:
 			return True
