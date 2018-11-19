@@ -43,6 +43,7 @@ def logout():
 	flash('You have been logged out.')
 	return redirect(url_for('main.index'))
 
+
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
 	form = RegistrationForm()
@@ -82,10 +83,10 @@ def resend_confirmation():
 	return redirect(url_for('main.index'))
 
 
-@auth.route('/changge-password', methods=['GET', 'POST'])
+@auth.route('/change-password', methods=['GET', 'POST'])
 @login_required
 def change_password():
-	form = ChangePasswordForm
+	form = ChangePasswordForm()
 	if form.validate_on_submit():
 		if current_user.verify_password(form.old_password.data):
 			current_user.password = form.password.data
