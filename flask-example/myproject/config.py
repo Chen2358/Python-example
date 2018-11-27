@@ -17,6 +17,8 @@ class Config:
 	FLASKY_FOLLOWERS_PER_PAGE = 50
 	FLASKY_COMMENTS_PER_PAGE = 20
 	FLASKY_USERS_PER_PAGE = 10
+	SQLALCHEMY_RECORD_QUERIES = True
+	FLASKY_DB_QUERY_TIMEOUT=0.5
 
 	@staticmethod
 	def init_app(app):
@@ -36,7 +38,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
 	TESTING = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
-
+	WTF_CSRF_ENABLED= False
 '''
 class ProductionConfig(Config):
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
