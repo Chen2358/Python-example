@@ -5,39 +5,39 @@ import os, sys
 import jieba, codecs, math
 import jieba.posseg as pseg
 
-names = {}				#
-relationships = {}		#
-lineNames = []			#
+names = {}				#姓名字典
+relationships = {}			#关系字典
+lineNames = []				#每段内任务关系
 
-jieba.load_userdict("dict.txt")							#
+jieba.load_userdict("dict.txt")							#加载字典
 with codecs.open("busan.txt", "r", "utf-8") as f:
 	for line in f.readlines():
-		poss = pseg.cut(line)							#
-		lineNames.append([])
+		poss = pseg.cut(line)						#分词并返回该词词性
+		lineNames.append([])						#为新读入的一段添加人物名称列表
 		for w in poss:
 			if w.flag != "nr" or len(w.word) < 2:
-				continue								#
-			lineNames[-1].append(w.word)				#
+				continue					#当分词长度小于2或该词词性不为nr时则认为该词不是人名
+			lineNames[-1].append(w.word)				#为当前段的 环境增加一个任务
 			if names.get(w.word) is None:
 				names[w.word] = 0
 				relationships[w.word] = {}
-			names[w.word] += 1
+			names[w.word] += 1					#该人物出现次数增加 1
 #ceshi
 # for name, times in names.items():
 # 	print(name, times)
 
-#
-for line in lineNames:					#
+#根据结果构建网络：两人物质检没有边，则新建的边权值为1，否则权值加 1
+for line in lineNames:								#对每一段
 	for name1 in line:
-		for name2 in line:				#
+		for name2 in line:						#每段中任意两个人
 			if name1 == name2:
 					continue
-			if relationships[name1].get(name2) is None:		#
+			if relationships[name1].get(name2) is None:		#若两人尚未同时出现则新建
 				relationships[name1][name2] = 1
 			else:
-				relationships[name1][name2] = relationships[name1][name2] + 1
+				relationships[name1][name2] = relationships[name1][name2] + 1 #两人同时出现次数加1
 
-#
+#过滤冗余边（共同出现次数少于3），输出结果
 with codecs.open("busan_node.txt", "w", "gbk") as f:
 	f.write("Id Label Weight\r\n")
 	for name, times in names.items():
