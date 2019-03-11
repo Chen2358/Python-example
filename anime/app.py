@@ -11,11 +11,11 @@ def index():
 	return render_template('index.html')
 @app.route('/search/')
 def search():
-	#
+	#request为全局变量可得到用户输入信息
 	n = request.args.get('user')
-	#
+	
 	dic = recommend.recommend(n)
-	#
+	
 	return render_template('search.html', Data=dic)
 
 if __name__ == '__main__':
