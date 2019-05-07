@@ -6,7 +6,6 @@ red_queue = "test_the_url_queue"
 red_crawled_set = 'test_url_has_crawled'
 
 
-process_pool = (multiprocessing.cpu_count() * 2)
 
 #connect to redis server
 red = redis.Redis(host='localhost', port=6379, db=1)

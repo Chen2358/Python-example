@@ -7,7 +7,7 @@ gevent.monkey.patch_ssl()
 import requests
 from lxml import html
 from db import Zhihu_User_Profile
-from red_filter import check_url, re_crawl_url
+from redis_filter import check_url, re_crawl_url
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
