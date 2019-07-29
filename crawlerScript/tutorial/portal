@@ -1,0 +1,861 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>外协加工_机加工_钣金加工_3D打印_外协机加工-速加网</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="keywords" content="中国外协加工网,零件快速打样,d打印,激光切割加工,cnc加工厂，外协机加工,非标零件加工">
+        <meta name="description" content="速加网cnc加工厂，通过上传图纸自动报价、智能匹配为客户提供专业CNC加工,激光切割加工,外协机加工,3d打印等非标零件加工。通过闲置产能共享、协同制造的方式快速打样,低成本量产，为零件的量产阶段大幅降低零件加工成本。">
+        <link rel="stylesheet" href="/portal/libs/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="/portal/css/common.css">
+        <link rel="stylesheet" href="/portal/css/index_cn.css">
+    </head>
+    <body ng-app="sogaaApp">
+        <!-- 头部与导航 -->
+        
+
+<link rel="stylesheet" href="/portal/css/reset.css">
+<style>
+    .registerBtn a{
+        display: block;
+        width: 191px;
+        height: 52px;
+        line-height: 48px;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+        border-radius: 5px;
+        transition: all .2s;
+        padding: 0;
+    }
+    .registerBtn{
+        display: none;
+        border-bottom: 1px solid #eee;
+        box-shadow: 0px 3px 13px 0px rgba(124, 149, 160, 0.13);
+    }
+    .registerBtn div{
+        text-align: center;
+    }
+</style>
+<script> var _hmt = _hmt || [];</script>
+<!-- 头部 -->
+<!--[if lt IE 9]>
+    <div style="background-color:#ffefe5;position:fixed;top:0;left:0;text-align: center;z-index:2000;width:100%;height:32px;line-height:32px;white-space: nowrap;">
+        鉴于IE8浏览器安全性问题，我们已停止支持IE8以下浏览器，请使用其它浏览器获得最优访问体验~
+    </div>
+<![endif]-->
+<!-- <div class="header">
+    <div class="promise">
+        <span class="promise-sm">速加网郑重承诺 如因加工而导致出现的质量问题，速加网负责免费返修或重新加工，并承担来回运费。</span>
+        <div class="promise-lg" style="height:0;overflow:hidden;">
+            <div style="display:inline-block;margin-top: 26px;">
+                <p class="lg-t">速加网郑重承诺</p>
+                <p class="lg-b">如因加工而导致出现的质量问题，速加网负责免费返修或重新加工，并承担来回运费。</p>
+            </div> -->
+            <!-- <div class="promise-icon"></div> -->
+            <!-- <img src="/portal/img/index/promise.png" alt="promise" style="margin-top: -52px;">
+        </div>
+    </div>
+    <div class="status">
+        <div class="content-w clearfix">
+            <div class="header-content">
+                <div class="fr">
+                    <div style="display: inline-block;">
+                        <a href="/space/quotation/myQuotation">我的询价</a>|
+                        <a href="/space/order/orderList">我的订单</a>|
+                        <a href="/space/profile/welcome">我的速加</a>
+                    </div>
+                    <span class="glyphicon glyphicon-earphone text-blue"></span>
+                    <em class="text-blue text-blod">4006-857-057</em>
+                </div>
+                <div id="headerTopId">
+                    <p class="fs-12 fl" style="color: #909ba3;">您好</p>
+                    
+                    
+                    <div class="login-info text-right" id="headerLoginId">
+                        ！欢迎来到速加网
+                        <a href="/portal/login" class="fs-12 text-blod login">登录</a>
+                        <a class="fs-12 text-blod register" href="/portal/register">免费注册</a>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- 导航 -->
+    <!-- <div class="sgnavs pr">
+        <div class="content-w nav-content clearfix">
+            <a href="/">
+                <img src="/portal/img/index/sglogo.png" alt="SOGAALOGO" class="fl" style="margin-top:13px;">
+            </a>
+            <button class="btn-nav fr quotation">上传报价</button>
+            <ul class="sgnav clearfix">
+                <li class=""><a href="/">首页</a></li>
+                <li class="pas">
+                    <a href="javascript:void(0)">
+                        产品与服务
+                        <span class="triangle-down"></span>
+                    </a>
+                    <ul class="pa sgnav-2">
+                        <li style="margin-left:264px;">
+                            <a href="/portal/serve/cnc">
+                                <span class="product-icon icon-cnc"></span>
+                                <p>CNC加工</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portal/serve/bj">
+                                <span class="product-icon icon-metalpalte"></span>
+                                <p>钣金加工</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portal/serve/sb">
+                                <span class="product-icon icon-palm"></span>
+                                <p>手板加工</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portal/serve/3d">
+                                <span class="product-icon icon-3dprint"></span>
+                                <p>3D打印</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portal/serve/jgnew">
+                                <span class="product-icon icon-laserCut"></span>
+                                <p>激光切割</p>
+                            </a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="/portal/product/diecasting">
+                                <span class="product-icon icon-diecasting"></span>
+                                <p>压铸</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portal/product/injection">
+                                <span class="product-icon icon-injection"></span>
+                                <p>注塑</p>
+                            </a>
+                        </li> -->
+                    <!-- </ul>
+                </li>
+                <li><a href="/portal/zyzx/ypk">样品库</a></li>
+                <li><a href="/portal/zyzx/clk">材料库</a></li>
+                <li><a href="/portal/zyzx/cgal">成功案例</a></li>
+                <li><a href="/portal/zyzx/zxzx">资讯中心</a></li>
+                <li><a href="/portal/aboutsujia">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="sidebar-r pf">
+    <ul>
+        <li><a href="javascript:window.open('http://p.qiao.baidu.com/cps/chat?siteId=9872997&userId=18103649', '', 'height=550,width=610,scrollbars=no');void(0);">
+            <div class="sidebox"><span class="icon-kf"></span>在线客服</div>
+        </a></li>
+        <li><a href="http://amos.alicdn.com/getcid.aw?spm=2013.1.1000126.5.SfbV4U&v=3&site=cntaobao&groupid=0&s=1&fromid=cntaobao%CB%D9%BC%D3%CD%F8&uid=%CB%D9%BC%D3%CD%F8" target="_blank">
+            <div class="sidebox"><span class="icon-ww"></span>旺旺</div>
+        </a></li>
+        <li><a href="http://q.url.cn/abPtb3?_type=wpa&qidian=true" target="_blank"><div class="sidebox"><span class="icon-qq"></span>QQ</div></a></li>
+    </ul>
+</div> -->
+<!-- <div class="sidebar-r pf">
+    <a href="javascript:void(0)" class="toTop" title="返回顶部"></a>
+    <span class="toClose" title="收起侧边栏"></span>
+    <p><a leave-check="no" href="javascript:window.open('http://p.qiao.baidu.com/cps/chat?siteId=9872997&userId=18103649', '', 'height=550,width=610,scrollbars=no');void(0);">与工程师在线沟通</a></p>
+    <div class="sidebar-img">
+        <a leave-check="no" href="javascript:window.open('http://q.url.cn/abPtb3?_type=wpa&qidian=true');void(0);"></a>
+    </div>
+    <div class="sidebar-r-b">
+        <a leave-check="no" href="http://q.url.cn/abPtb3?_type=wpa&qidian=true" target="_blank" title="QQ"><div class="sidebox"><span class="icon-qq"></span></div></a>
+        <a leave-check="no" href="http://amos.alicdn.com/getcid.aw?spm=2013.1.1000126.5.SfbV4U&v=3&site=cntaobao&groupid=0&s=1&fromid=cntaobao%CB%D9%BC%D3%CD%F8&uid=%CB%D9%BC%D3%CD%F8" target="_blank" title="旺旺">
+            <div class="sidebox"><span class="icon-ww"></span></div>
+        </a>
+        <a leave-check="no" href="javascript:window.open('http://p.qiao.baidu.com/cps/chat?siteId=9872997&userId=18103649', '', 'height=550,width=610,scrollbars=no');void(0);" title="在线客服">
+            <div class="sidebox"><span class="icon-kf"></span></div>
+        </a>
+    </div>
+    <div>
+        <button class="btn btn-section quotation">无需注册，上传报价</button>
+    </div>
+    <div class="toOpen" title="展开侧边栏"></div>
+</div> -->
+
+<div class="serviceHead cn-head pr">
+    <div class="promise" style="display: block;">
+        <div class="promise-sm bgnc"></div>
+        <div class="promise-lg bgnc"></div>
+    </div>
+    <div class="top">
+        <div class="content-w clearfix">
+            <div class="fr">
+                <div id="headerTopId">
+                    
+                    
+                    <div class="login-info text-right dib pr" id="headerLoginId">
+                        
+                        
+
+                        <a href="/portal/mainRegister" class="register" target="_blank">免费注册</a>
+                        <a href="/portal/mainLogin" class="login" target="_blank">立即登录</a>
+
+                        
+                        
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                        
+                        
+                        
+                            
+                                
+                            
+                            
+                                
+                            
+                        
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <span><em class="spIcon3 icon-earphone" style="margin-right: 8px;"></em>咨询热线：<span style="font-style: italic;">4006-857-057</span></span>
+        </div>
+    </div>
+    <div class="pr">
+        <div class="content-w bottom clearfix">
+            <div class="fr clearfix navList">
+                <div class="fr">
+                    <div class="nav-btn upload-quotation quotation">
+                        获取报价
+                        
+                            
+                                
+                                
+                            
+                            
+                                
+                                
+                            
+                        
+                    </div>
+                </div>
+                <ul class="clearfix fl">
+                    <li class="fl text-center"><a class="trans" href="/">首页</a></li>
+                    <li class="fl text-center"><a class="trans" href="/portal/serve">服务内容</a></li>
+                    <li class="fl text-center"><a class="trans" href="/portal/sfgc">示范工厂</a></li>
+                    <li class="fl text-center">
+                        <a class="trans" nav-target="nav-resources">资源中心</a>
+                        <div class="subNav-item nav-resources pa">
+                            <ul class="clearfix content-w text-center">
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/zyzx/ypk">样品库</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/zyzx/clk">材料库</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/zyzx/lesk">劳尔色卡</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/zyzx/cgal">成功案例</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/zyzx/zxzx">资讯中心</a></li>
+                                <li class="fl pr" style="padding-right:0;"><a class="trans db text-gray3" href="/portal/zyzx/bzzx">帮助中心</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="fl text-center">
+                        <a class="trans" nav-target="nav-about">关于我们</a>
+                        <div class="subNav-item nav-about pa">
+                            <ul class="clearfix content-w text-center">
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/aboutsujia">关于我们</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/team">团队介绍</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/sujianews">新闻报道</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/sujiacustomer">合作客户</a></li>
+                                <li class="fl pr"><a class="trans db text-gray3" href="/portal/evaluate">客户评价</a></li>
+                                <li class="fl pr" style="padding-right:0;"><a class="trans db text-gray3" href="/portal/joinsujia">加入我们</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!-- <li class="fl text-center"><a href="/portal/supp/supplierPartner" class="trans">我是供应商</a></li> -->
+                </ul>
+            </div>
+            <a href="/" style="display: inline-block;">
+                <img src="/portal/img/service/sglogo.png" alt="速加网" title="速加网 – 靠谱的机械加工云平台">
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="cn-sidebar pf text-center">
+    <ul>
+        <li class="trans ofh">
+            <a class="trans" leave-check="no" href="http://q.url.cn/abPtb3?_type=wpa&qidian=true" target="_blank">
+                <em class="trans icon icon-qq"></em><br>QQ咨询
+            </a>
+        </li>
+        <li class="trans ofh online">
+            <a class="trans" leave-check="no" href="javascript:window.open('http://p.qiao.baidu.com/cps/chat?siteId=9872997&userId=18103649', '', 'height=550,width=610,scrollbars=no');void(0);">
+                <em class="trans icon icon-ol"></em><br>在线咨询
+            </a>
+        </li>
+        <li class="trans ofh mini">
+            <a class="trans">
+                <em class="trans icon icon-mini"></em><br>小程序
+            </a>
+        </li>
+        <li class="trans ofh">
+            <a class="quotation trans">
+                <em class="trans icon icon-qt-r"></em><br>快速打样
+            </a>
+        </li>
+        <li class="trans ofh">
+            <a class="quotation-mass trans text-center text-nowrap">
+                <em class="trans icon icon-qt-v"></em><br>发布批量需求
+            </a>
+        </li>
+        <li class="trans ofh bb0">
+            <a class="feedback trans">
+                <em class="trans icon icon-feedback"></em><br>反馈建议
+            </a>
+        </li>
+    </ul>
+
+    <div class="online-tip">
+        <div>客服热线：</div>
+        <div class="text-black">4006-857-057</div>
+        <div style="padding-top: 15px;">服务时间：</div>
+        <div style="padding-top: 5px;">周一至周五：</div>
+        <div class="text-black">9:00-18:30</div>
+        <div style="padding-top: 5px;">周六：</div>
+        <div class="text-black">9:30-18:30</div>
+    </div>
+
+    <div class="mini-tip">
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="firstOrder">
+    <style>
+        .modal-dialog.firstOrder{
+            width: 1213px;
+            margin: 180px auto;
+            text-align: center;
+        }
+        .firstOrder .closeBtn{
+            position: absolute;
+            bottom: 88px;
+            width: 282px;
+            line-height: 54px;
+            left: 50%;
+            margin-left: -118px;
+            border-radius: 30px;
+            background-color: #1da6ff;
+            color: #000;
+            border: 2px solid #000;
+            font-size: 28px;
+            letter-spacing: 0.1em;
+        }
+        .firstOrder .closeIcon{
+            position: absolute;
+            right: 21px;
+            top: 15px;
+            width: 34px;
+            line-height: 34px;
+            border-radius: 50%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    </style>
+    <div class="modal-dialog firstOrder" role="document">
+        <div class="modal-content">
+            <span class="closeIcon">X</span>
+            <img src="/portal/img/fp/dl-bg.png" alt="">
+            <button class="closeBtn">查看详情</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="firstTime">
+    <style>
+        .firstTime.modal-dialog{
+            margin-top: 250px;
+        }
+        .firstTime .btnGroup a{
+            display: inline-block;
+            text-align: center;
+            width: 160px;
+            line-height: 50px;
+            background-color: #1da6ff;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 40px;
+        }
+        .closeFirstTimeBtn{
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+    </style>
+    <div class="modal-dialog firstTime text-center" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border:none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="_hmt.push(['_trackPageview', '/portal/common/guide_alert_close']);"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <img src="/portal/img/500.png">
+            <h3>尊敬的客户，有什么小Ga可以帮您的吗？</h3>
+            <div class="btnGroup">
+                <a href="javascript:void(0)" onclick="_hmt.push(['_trackPageview', '/portal/common/guide_alert_quotation']);" class="quotation">自助快速询价</a>
+                <a leave-check="no" href="javascript:_hmt.push(['_trackPageview', '/portal/common/guide_alert_online_communicate']);window.open('http://p.qiao.baidu.com/cps/chat?siteId=9872997&userId=18103649', '', 'height=550,width=610,scrollbars=no');void(0);">专业工程师在线沟通</a>
+            </div>
+            <a href="javascript:_hmt.push(['_trackPageview', '/portal/common/guide_alert_close']);void(0)" class="closeFirstTimeBtn">继续浏览</a>
+        </div>
+    </div>
+</div>
+
+<!-- 询价选择 -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="quote-type" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document" style="width: 862px; margin-top: 253px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="quote-box clearfix">
+                    <div class="part" data-type="engineer">
+                        <div class="engineer">
+                            <div class="top clearfix">
+                                <img src="/portal/img/quotation/artificialQuotation.png"/>
+                                <div style="height: auto;">专业工程师报价</div>
+                                <span class="fyi" style="line-height: 28px; vertical-align: bottom">（CNC加工、手板制作、钣金加工）</span>
+                            </div>
+                            <p>
+                                最快
+                                <span>半小时</span>
+                                内反馈报价
+                            </p>
+                        </div>
+                    </div>
+                    <div class="dashed-line"></div>
+                    <div class="part br0" data-type="auto">
+                        <div class="auto">
+                            <div class="top clearfix">
+                                <img src="/portal/img/quotation/autoQuotation.png"/>
+                                <div>
+                                    <span>全自动报价</span>
+                                    <span class="fyi">（3D打印，激光切割）</span>
+                                </div>
+                            </div>
+                            <p>
+                                提交后可获得
+                                <span>实时</span>
+                                报价
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="feedback">
+    <div class="modal-dialog" role="document"
+         style="width: 478px!important; min-width: 100px!important; margin-top: 160px;">
+        <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <div style="font-size: 18px;margin-top: 10px" class="modal-title text-center">反馈建议</div>
+            </div>
+            <div class="modal-body" style="padding: 20px 30px">
+                <textarea rows="5" id="feedbackDescribe"
+                          style="resize: none; border-radius: 4px; width: 100%;padding: 5px"></textarea>
+                <div class="container-fluid">
+                    <div class="row" id="customerInfo">
+                        <label for="customerName" class="control-label">姓名</label>
+                        <input class="form-control" type="text" id="customerName"/>
+                        <label for="customerPhone" class="control-label">联系电话</label>
+                        <input class="form-control" type="text" id="customerPhone"/>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;margin: 20px 0 30px 0">
+                <button type="button" class="btn-sm-blue" style="width: 160px;height: 46px;font-size: 18px;" id="feedbackSubmit" disabled="disabled">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="feedbackTip">
+    <div class="modal-dialog" role="document" style="width: 478px!important; min-width: 100px!important; margin-top: 160px;">
+        <div class="modal-content">
+            <div class="modal-body text-center no-border" style="padding-top: 50px">
+                <img src="/portal/img/quotation/success-lg.png" alt="">
+                <h4 style="margin-top: 50px">感谢您的反馈!</h4>
+            </div>
+            <div class="modal-footer no-border" style="padding-bottom: 50px;text-align: center">
+                <button type="button" class="btn-sm-blue" style="height: 46px;line-height: 42px;font-size: 16px" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+        <div class="pt-all">
+            <!-- Our service 我们的服务 -->
+            <div class="bg-white serviceProduct ofh active" style="padding-top: 60px">
+                <div class="content-w">
+                    <div class="nav-service ">
+                        <div class="tip text-center">
+                            <div class="text-heading">
+                                速加网通过云平台的方式解决两件事情：
+                            </div>
+                            <div class="text-body mt-20">
+                                在研发阶段，持续不断的提升打样的<span class="text-black text-bold">“速度”</span>；在量产阶段，矢志不渝的为客户<span class="text-black text-bold">“降低成本”</span>。
+                            </div>
+                        </div>
+                        <div class="text-center" style="font-size: 0; line-height: 0; padding-bottom: 110px;">
+                            <button class="btn-orange proofing" onclick="window.location.href='/portal/product/proofing'">
+                                <div class="mark">R</div>
+                                <div class="btn-text">快速打样</div>
+                            </button>
+                            <button class="btn-blue mass-production" onclick="window.location.href='/portal/product/massProduction'" style="margin-left: 45px;">
+                                <div class="mark">V</div>
+                                <div class="btn-text">低成本量产</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-w ">
+                    <div class="clearfix">
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.3s;">
+                            <a href="/portal/serve/cnc" class=" trans" >
+                                <div class="box-t ofh">
+                                    <img  src="/portal/img/service/1.jpg" alt="CNC加工">
+                                    <p class="info transAll-5 fs-14 text-left text-white">
+                                        提供CNC（3轴/4轴/5轴
+                                        ）、数控车、自动车、车铣
+                                        复合、线切割、电火花、龙
+                                        门铣、深孔加工等多种机加
+                                        工工艺。
+                                    </p>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <span class="service-icon pa text-white text-center icon-r bg-orange">R</span>
+                                    <p class="subTitle ">机加工</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.4s;">
+                            <a href="/portal/serve/sb" class=" trans" >
+                                <div class="box-t ofh">
+                                    <img  src="/portal/img/service/2.jpg" alt="手板制作">
+                                    <p class="info transAll-5 fs-14 text-left text-white">
+                                        提供塑胶和金属手板服
+                                        务，支持小批量复模加
+                                        工，喷油、丝印、打标一
+                                        条龙。
+                                    </p>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <span class="service-icon pa text-white text-center icon-r bg-orange">R</span>
+                                    <p class="subTitle">手板制作</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.5s;">
+                            <a href="/portal/serve/bj" class=" trans" >
+                                <div class="box-t ofh">
+                                    <img  src="/portal/img/service/3.jpg" alt="钣金加工">
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        激光切割、折弯、压铆、焊接一应俱全，机箱、机柜、大型机架，精密钣金加工。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <span class="service-icon pa text-white text-center icon-r bg-orange">R</span>
+                                    <p class="subTitle" style="white-space: nowrap;margin-left: -8px;">钣金加工</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.6s;">
+                            <a href="/portal/serve/3d" class=" trans" >
+                                <div class="box-t ofh">
+                                    <img  src="/portal/img/service/4.jpg" alt="3D打印">
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        在线自助报价下单，上传图纸，30s内即可获得报价，价格创行业新低，最快可24小时内交货。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <span class="service-icon pa text-white text-center icon-r bg-orange">R</span>
+                                    <p class="subTitle">3D打印</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.7s;">
+                            <a href="/portal/serve/jgnew" class=" trans" >
+                                <div class="box-t ofh">
+                                    <img  src="/portal/img/service/5.jpg" alt="激光切割">
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        行业首创在线实时报价下单系统，可快速切割铝板、铁板、不锈钢板。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <span class="service-icon pa text-white text-center icon-r bg-orange">R</span>
+                                    <p class="subTitle">激光切割</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clearfix mt-30">
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.3s;">
+                            <a href="/portal/product/graphite" class=" trans" >
+                                <div class="box-t ofh" style="background: #fff;padding-top: 30px;">
+                                    <img  src="/portal/img/graphite/9.png" alt="石墨碳素加工">
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        用优质石油焦为原料，采用先进的生产工艺和生产设备，打造具有密度大、抗压和抗折强度高、气孔率低、耐烧蚀、耐酸硷的石墨产品。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <p class="subTitle">石墨碳素加工</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.4s;">
+                            <a href="javascript:;" class=" trans" >
+                                <div class="box-t ofh">
+                                    <div class="img img1"></div>
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        提供砂铸、重力铸造、低压铸造、压铸、精铸等多种铸造工艺，包括铸造之后的二次加工及表面处理服务。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <p class="subTitle">铸造</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.5s;">
+                            <a href="javascript:;" class=" trans" >
+                                <div class="box-t ofh">
+                                    <div class="img img2"></div>
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        提供从快速开模到批量生产、表面后处理的一站式服务。单色模具、双色模具、多种材料可供选择。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <p class="subTitle">注塑</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.6s;">
+                            <a href="javascript:;" class=" trans" >
+                                <div class="box-t ofh">
+                                    <div class="img img3"></div>
+                                    <div class="info transAll-5 fs-14 text-left text-white">
+                                        模具设计速度快、最快20天可以交付模具：铸造模具、注塑模具、冲压模具均可提供。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <p class="subTitle" style="white-space: nowrap;margin-left: -8px;">模具</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                        
+                            
+                                
+                                    
+                                    
+                                        
+                                    
+                                
+                                
+                                    
+                                    
+                                
+                            
+                        
+                        <div class="product-item text-center w-20p fl" style="transition-delay:.7s;">
+                            <a href="javascript:;" class=" trans" >
+                                <div class="box-t ofh">
+                                    <div class="img img5"></div>
+                                    <div style="padding-top: 10px" class="info transAll-5 fs-14 text-left text-white">
+                                        集铝合金型材产品设计、绘
+                                        图、模具制造、生产、加工、
+                                        表面处理于一体。<br/>
+                                        采用进口加工设备，可加工
+                                        各种特殊、异型、多曲面铝
+                                        材加工件。
+                                    </div>
+                                </div>
+                                <div class="box-m pr bg-white trans">
+                                    <p class="subTitle">型材挤压</p>
+                                    <span class="service-icon pa text-white text-center icon-v bg-blue">V</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 页脚 -->
+        
+
+<!-- 页脚 -->
+<div class="footer">
+    <div class="content-w footer-content">
+        <div class="footer-top clearfix">
+            <div class="box1 fl text-left">
+                <div class="box-title fs-16">关于我们</div>
+                <ul>
+                    <li><a target="_blank" href="/portal/aboutsujia#c">速加介绍</a>
+                    </li>
+                    <li><a target="_blank"
+                           href="/portal/sujiacustomer#c">速加客户</a></li>
+                    <li><a target="_blank" href="/portal/zyzx/bzzx">帮助中心</a>
+                    </li>
+                </ul>
+                <div class="box-title fs-16">产品展示</div>
+                <ul>
+                    <li><a target="_blank" href="/portal/zyzx/ypk"><span
+                            style="letter-spacing: .5em;">样品</span>库</a></li>
+                    <li><a target="_blank" href="/portal/zyzx/clk"><span
+                            style="letter-spacing: .5em;">材料</span>库</a></li>
+                </ul>
+            </div>
+            <div class="box2 fl text-left">
+                <div class="box-title fs-16">条款</div>
+                <ul>
+                    <li><a target="_blank" href="/portal/agreements/register">注册用户协议</a>
+                    </li>
+                    <li><a target="_blank" href="/portal/agreements/privacy">用户隐私条款</a>
+                    </li>
+                    <li><a target="_blank"
+                           href="/portal/agreements/law">法律声明</a></li>
+                    <li><a target="_blank"
+                           href="/portal/agreements/confidentiality">保密协议</a>
+                    </li>
+                    <li><a target="_blank" href="/portal/agreements/invoice">发票说明</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box3 fl text-center" style="padding-top: 50px">
+                <ul>
+                    <li>
+                        <a target="_blank" href="https://sogaa.taobao.com/">
+                            <div class="pic1"></div>
+                            <div>淘宝官方旗舰店</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a  href="javascript:void(0)" onclick="return false;" >
+                            <img class="pic" width="70" height="70" src="/portal/img/product/laserCut/erweima.png"
+                                 alt="速加微信公众号">
+                            <div>速加微信公众号</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="return false;">
+                            <img class="pic" width="70" height="70" src="/portal/img/miniprogram/space_qr_code.jpg"
+                                 alt="客户端微信小程序">
+                            <div>客户端微信小程序</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="return false;">
+                            <img class="pic" width="70" height="70" src="/portal/img/supp/page2/wechat.jpg"
+                                 alt="供应商微信小程序">
+                            <div>供应商微信小程序</div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="box4 fl text-center">
+                <div class="box-title fs-16">系统服务</div>
+                <ul>
+                    <li><a target="_blank"
+                           href="/portal/miniprogram/introduction">客户小程序</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box5 fl">
+                <div class="box-title fs-16">联系我们</div>
+                <ul>
+                    <li>
+                        <span class="icon icon-phone"></span>&nbsp;
+                        <span style="letter-spacing: 2em;">电</span>话：
+                        <span>4006-857-057</span>
+                    </li>
+                    <li>
+                        <span class="icon icon-time"></span>&nbsp;
+                        <span>工作时间：</span>
+                        <span>周一至周六 9:00-18:30</span>
+                    </li>
+                    <li style="margin-top: 5px;">
+                        <div class="address">
+                            <span class="icon icon-adrs"></span>&nbsp;
+                            <span style="letter-spacing: 2em;">地</span>址：
+                        </div>
+                        <span class="address-detail">深圳市宝安区西乡固戍泰华梧桐岛8栋（立秋）2楼</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="friendly-link">
+            
+            
+            
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="copyright">
+            Copyright &copy; 2015-<span class="currentYear"></span> 深圳市速嘉科技有限公司 速加网 All Rights Reserved. 粤ICP备15118146号
+        </div>
+    </div>
+</div>
+<div style="display:none">
+    <script>
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?524ff5c81d8e26570373960ff0d65e82";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        window._pt_lt = new Date().getTime();
+        window._pt_sp_2 = [];
+        _pt_sp_2.push('setAccount,1cf46586');
+        var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        (function () {
+            var atag = document.createElement('script');
+            atag.type = 'text/javascript';
+            atag.async = true;
+            atag.src = _protocol + 'js.ptengine.cn/1cf46586.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(atag, s);
+        })();
+    </script>
+</div>
+    </body>
+    <script src="/portal/libs/jquery.min.js"></script>
+    <script src="/portal/libs/bootstrap/js/bootstrap.js"></script>
+    <script src="/portal/js/jq-animate.js"></script>
+    <script src="/portal/js/common.js"></script>
+</html>
