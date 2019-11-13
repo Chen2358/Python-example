@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<testsuites>
+	<testsuite errors="0" errors_detail="H:0 M:0 L:0" failures="3" failures_detail="H:0 M:3 L:0" hostname="space" name="Space" tests="4" time="76.535748" timestamp="2018-11-05T14:57:43.799243">
+		<testcase classname="SPACE_002" name="开始询价" priority="M" time="49.260837">
+			<failure message="step-4|CLICK|space工作台-图纸下一步: Message: 
+" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_003" name="激光切割" priority="M" time="10.482127">
+			<failure message="" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_004" name="3D打印" priority="M" time="10.405049">
+			<failure message="" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_005" name="下单" priority="M" time="1.355113"/>
+	</testsuite>
+</testsuites>

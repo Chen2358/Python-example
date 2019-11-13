@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<testsuites>
+	<testsuite errors="0" errors_detail="H:0 M:0 L:0" failures="3" failures_detail="H:0 M:3 L:0" hostname="space" name="Space" tests="4" time="61.796334" timestamp="2018-11-05T15:14:56.331203">
+		<testcase classname="SPACE_002" name="开始询价" priority="M" time="34.584268">
+			<failure message="step-4|UPLOAD|文件: string indices must be integers" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_003" name="激光切割" priority="M" time="10.314808">
+			<failure message="" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_004" name="3D打印" priority="M" time="10.647915">
+			<failure message="" type="Fail"/>
+		</testcase>
+		<testcase classname="SPACE_005" name="下单" priority="M" time="1.313514"/>
+	</testsuite>
+</testsuites>

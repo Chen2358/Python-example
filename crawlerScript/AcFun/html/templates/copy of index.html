@@ -1,0 +1,816 @@
+<html class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Copyright (c) AcFun" name="copyright">
+<title>娱乐 - AcFun弹幕视频网</title>
+<link href="http://w5cdn.ranktv.cn/dotnet/20130418/style/core.css?date=05201035" rel="stylesheet" id="sanae"><!--Style -->
+<link href="http://w5cdn.ranktv.cn/dotnet/20130418/style/channel.css" rel="stylesheet" id="nagisa">
+<!--[if lt IE 8]>
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/script/json2.js"></script>
+<![endif]-->
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/script/prefix.js"></script>
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/script/core.js?date=05211055"></script>
+<script>
+	system.path ="http://w5cdn.ranktv.cn/dotnet/20130418";
+</script>
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/ueditor/ubb.min.js"></script>
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/script/header.js?date=05101755"></script><!--Script -->
+<script>
+	system.location = 'location-channel';
+	system.type = 'joy';
+</script>
+<script src="http://w5cdn.ranktv.cn/dotnet/20130418/script/channel.js"></script>
+<style type="text/css">object,embed{-webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;-ms-animation-duration:.001s;-ms-animation-name:playerInserted;-o-animation-duration:.001s;-o-animation-name:playerInserted;animation-duration:.001s;animation-name:playerInserted;}@-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
+
+<body>
+<div class="location-channel" id="stage"><!--Stage -->
+	<!--Header开始-->
+<div id="area-info"></div><!--Info Area -->
+<div id="area-window"><!--Window Area -->
+	<div class="win" id="win-info" style="display: none;"><div class="mainer"></div></div><!--Window Info -->
+	<div class="win win-hint" id="win-hint"><div class="mainer"></div><div class="tail"></div></div><!--Window Hint -->
+</div><!--Window Area -->
+
+<!--Guide -->
+<span class="clearfix"></span>
+<script>
+	$.readyStage(function() {
+		$.exe('first');
+		readyHeader();
+	});
+</script><!--Header --><!--Header -->
+	<!--
+<div class="ad ad-top">
+<a href="/a/ac685735" target="_blank" title=""><img src="http://w5cdn.ranktv.cn/dotnet/artemis/u/cms/www/201306/08101614odz9.jpg" border="0" style=""/></a>
+
+
+<div class="tail"></div>
+</div>
+--><!--Ad -->
+	<div id="mainer" style="min-height: 257px;"><!--Mainer -->
+		<div id="mainer-inner"><!--Inner -->
+			<div class="area-left" id="area-mainer-left"><!--Mainer Right -->
+				<!--tabb Top -->
+				<!--Ad -->
+				<div class="tabb block" id="block-channel-content">
+					
+					<div class="mainer th-large">
+<script>
+	var bindListStyle = function(){
+		$('#block-channel-content&gt;div.banner&gt;span.tool&gt;div.btn')
+		.click(function(){
+			if(!$(this).hasClass('active')){
+				//get config
+				config.channel.style = $.trim($(this).children('i.icon').attr('class').toString().match(/th\-large|th\-list|th/)[0].toString());
+				//save config
+				$.save('config');
+				//add active class
+				$(this)
+				.siblings().removeClass('active')
+				.end()
+				.addClass('active');
+				//execute
+				if(config.channel.style == 'th'){
+					//block-reply
+					var style = '&lt;style id="ryou"&gt;#block-channel-reply{display:none;}&lt;/style&gt;';
+					$('#nagisa').after(style);
+					//block-main
+					$('#block-channel-content').find('div.mainer')
+					.delegate('div.unit', 'mouseenter', function(){
+						var obj = $(this).find('p.info');
+						obj
+						.stop()
+						.animate({
+							opacity: 0.2
+						}, 200);
+					})
+					.delegate('div.unit', 'mouseleave', function(){
+						var obj = $(this).find('p.info');
+						obj
+						.stop()
+						.animate({
+							opacity: 1
+						}, 200);
+					});
+				}else{
+					//block-reply
+					$('#ryou').remove();
+					//block-main
+					$('#block-channel-content').find('div.mainer').undelegate();
+				};
+				//rewrite block-main class
+				$('#block-channel-content').find('div.mainer').attr({
+					'class': 'mainer ' + config.channel.style
+				});
+			};
+		});
+		//loadin
+		$('#block-channel-content&gt;div.banner&gt;span.tool')
+		.find('i.icon-' + config.channel.style)
+		.parent()
+		.click();
+	};
+	//
+	bindListStyle();
+</script>
+	<!--List -->
+	<div data-aid="693870" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693870" class="thumb">
+				<img alt="视频封面:肢解狂魔凹凸曼" src="http://w5cdn.ranktv.cn/dotnet/artemis/u/cms/www/201306/10174516ay4m.gif" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>7685</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>32</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="黄金的狮龙 发布于 2013-06-10 17:45:19" target="_blank" href="/v/ac693870" class="title">肢解狂魔凹凸曼</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=82389" class="name"><i class="icon grey icon-user"></i>黄金的狮龙</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时45分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时45分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>7685</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>32</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>32</span>
+			</div>
+			
+			<p class="desc">sm138006 老物，站上挂了，补下！无法直视！</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693867" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693867" class="thumb">
+				<img alt="视频封面:村   姑  猫  叔" src="http://g3.ykimg.com/1100641F4651AC256EC1C60195C55F1900406B-74A7-95DF-E2BA-A956662AB25F" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>829</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>4</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="毅然辜负天下 发布于 2013-06-10 17:43:34" target="_blank" href="/v/ac693867" class="title">村   姑  猫  叔</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=211935" class="name"><i class="icon grey icon-user"></i>毅然辜负天下</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时43分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时43分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>829</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>4</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>3</span>
+			</div>
+			
+			<p class="desc">好销魂的猫................</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693855" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693855" class="thumb">
+				<img alt="视频封面:6.9谭谈交通：谭警官不是临时工cdtv-3红绿灯栏目" src="http://g2.ykimg.com/1100641F4651B56DB5E6BA053217972FEB0962-5A7F-5665-9CCF-1025432D1224" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>1470</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>1</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="hyperstorm 发布于 2013-06-10 17:38:44" target="_blank" href="/v/ac693855" class="title">6.9谭谈交通：谭警官不是临时工cdtv-3红绿灯栏目</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=255163" class="name"><i class="icon grey icon-user"></i>hyperstorm</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时38分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时38分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>1470</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>1</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>0</span>
+			</div>
+			
+			<p class="desc">谭警官不是临时工cdtv-3红绿灯栏目</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693851" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693851" class="thumb">
+				<img alt="视频封面:【非看不可】2013深港澳车展-第一美人福特车模" src="http://g2.ykimg.com/1100641F4651B59911B18F059C1156F2C0058B-C39E-7D91-6044-A2D23FA47A2B" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>2303</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>1</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="Soul银 发布于 2013-06-10 17:37:29" target="_blank" href="/v/ac693851" class="title">【非看不可】2013深港澳车展-第一美人福特车模</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=142628" class="name"><i class="icon grey icon-user"></i>Soul银</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时37分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时37分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>2303</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>1</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>15</span>
+			</div>
+			
+			<p class="desc">【非看不可】2013深港澳车展-第一美人福特车模</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693844" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693844" class="thumb">
+				<img alt="视频封面:2013深港澳车展-兰博基尼车模" src="http://g2.ykimg.com/1100641F4651B444854F40059C1156EE37FA12-A72B-B752-724A-34B75D8AD48B" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>1386</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>1</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="Soul银 发布于 2013-06-10 17:31:55" target="_blank" href="/v/ac693844" class="title">2013深港澳车展-兰博基尼车模</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=142628" class="name"><i class="icon grey icon-user"></i>Soul银</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时31分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时31分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>1386</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>1</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>7</span>
+			</div>
+			
+			<p class="desc">2013深港澳车展-兰博基尼车模</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693839" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693839" class="thumb">
+				<img alt="视频封面:大波妹的胸抖得我心煩" src="http://g1.ykimg.com/1100641F46511CC6C8A3A601B3B3C870D097D4-9308-FD8D-25FF-8FB7EFFDD7A3" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>4576</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>7</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="沒有人 发布于 2013-06-10 17:26:23" target="_blank" href="/v/ac693839" class="title">大波妹的胸抖得我心煩</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=158974" class="name"><i class="icon grey icon-user"></i>沒有人</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时26分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时26分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>4576</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>7</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>12</span>
+			</div>
+			
+			<p class="desc">sm20023783     この空の向こう  同一人ac693749</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693830" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693830" class="thumb">
+				<img alt="视频封面:煎蛋小学堂：可以把我们的梦录下来吗？" src="http://g3.ykimg.com/1100401F4651B47A82BEF80824269D0B62100C-81EE-82A7-0DB4-7EE688FA7991" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>160</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>0</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="GN.ghost 发布于 2013-06-10 17:16:02" target="_blank" href="/v/ac693830" class="title">煎蛋小学堂：可以把我们的梦录下来吗？</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=273727" class="name"><i class="icon grey icon-user"></i>GN.ghost</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时16分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时16分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>160</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>0</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>0</span>
+			</div>
+			
+			<p class="desc">梦里经常出现各种各样的灵感，如果能把我做过的梦都拍成电影，我早就打进好莱坞了。<br><br>我们大部分人只能记得自己所做梦的一些片段，如果能把我们的梦都录下来该多好呀，以后想梦也梦不到的时候，还能拿出来放放。<br><br>如今，这已经不仅仅是梦想了呢。</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693819" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693819" class="thumb">
+				<img alt="视频封面:Cooking with Dog - シュークリーム" src="http://w5cdn.ranktv.cn/dotnet/artemis/u/cms/www/201306/101702330bew.bmp" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>746</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>3</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="EndlessRain 发布于 2013-06-10 17:03:22" target="_blank" href="/v/ac693819" class="title">Cooking with Dog - シュークリーム</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=155076" class="name"><i class="icon grey icon-user"></i>EndlessRain</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 17时03分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 17时03分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>746</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>3</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>5</span>
+			</div>
+			
+			<p class="desc">http://www.youtube.com/user/cookingwithdog/</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693814" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693814" class="thumb">
+				<img alt="视频封面:90后女孩考场扯条幅示爱“我喜欢你带我回家”" src="http://vpic.video.qq.com/123/s01148q0loq_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>4061</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>16</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="无脑粉 发布于 2013-06-10 16:54:59" target="_blank" href="/v/ac693814" class="title">90后女孩考场扯条幅示爱“我喜欢你带我回家”</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=329723" class="name"><i class="icon grey icon-user"></i>无脑粉</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时54分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时54分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>4061</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>16</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>2</span>
+			</div>
+			
+			<p class="desc">我的心情和你们是一样的。。。</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693811" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693811" class="thumb">
+				<img alt="视频封面:淫魔再现 辣模控摄影师当面打手枪" src="http://p2.v.iask.com/515/87/106652905_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>6824</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>23</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="关注撸主三十年 发布于 2013-06-10 16:52:47" target="_blank" href="/v/ac693811" class="title">淫魔再现 辣模控摄影师当面打手枪</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=331065" class="name"><i class="icon grey icon-user"></i>关注撸主三十年</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时52分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时52分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>6824</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>23</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>7</span>
+			</div>
+			
+			<p class="desc">摄影师果然是个比较好的职业</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693796" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693796" class="thumb">
+				<img alt="视频封面:我愿教世界如何打飞机" src="http://g3.ykimg.com/1100641F4651AC776E7E9204A62D0A158BE285-C8FA-A7F9-EE70-0E2B7DDAEBF8" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>4988</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>27</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="告死天使囧 发布于 2013-06-10 16:38:05" target="_blank" href="/v/ac693796" class="title">我愿教世界如何打飞机</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=526555" class="name"><i class="icon grey icon-user"></i>告死天使囧</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时38分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时38分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>4988</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>27</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>70</span>
+			</div>
+			
+			<p class="desc">这是一个人手一鸟的世界</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693795" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693795" class="thumb">
+				<img alt="视频封面:新世纪音乐和轻音乐合集（1）" src="http://i4.tdimg.com/170/421/907/p.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>382</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>1</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="JrWatson 发布于 2013-06-10 16:37:30" target="_blank" href="/v/ac693795" class="title">新世纪音乐和轻音乐合集（1）</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=523158" class="name"><i class="icon grey icon-user"></i>JrWatson</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时37分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时37分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>382</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>1</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>12</span>
+			</div>
+			
+			<p class="desc">本合集一共收集了十个曲目，都是名曲。希望大家喜欢</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693779" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693779" class="thumb">
+				<img alt="视频封面:西藏僧侶熱唱 炮姐sister s bouzu" src="http://p3.v.iask.com/772/600/106669830_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>1851</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>8</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="沒有人 发布于 2013-06-10 16:21:04" target="_blank" href="/v/ac693779" class="title">西藏僧侶熱唱 炮姐sister s bouzu</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=158974" class="name"><i class="icon grey icon-user"></i>沒有人</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时21分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时21分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>1851</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>8</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>0</span>
+			</div>
+			
+			<p class="desc">sm20655906 【とある僧侶の超音波砲S】 sister's bouzu  想不到</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693775" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693775" class="thumb">
+				<img alt="视频封面:全民护考：堵路引发冲突  也有市民不买账" src="http://vpic.video.qq.com/123/h0012rbv4q9_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>6827</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>86</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="睿鑫网络 发布于 2013-06-10 16:14:35" target="_blank" href="/v/ac693775" class="title">全民护考：堵路引发冲突  也有市民不买账</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=536217" class="name"><i class="icon grey icon-user"></i>睿鑫网络</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时14分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时14分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>6827</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>86</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>1</span>
+			</div>
+			
+			<p class="desc">全民护考：堵路引发冲突  也有市民不买账</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693772" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693772" class="thumb">
+				<img alt="视频封面:技术宅VS姨妈巾" src="http://g1.ykimg.com/1100641F4651B1A9149F500870C55AB839F3DB-DB8A-4E26-07E9-3D94D08F7FE1" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>3928</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>19</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="小雷同学 发布于 2013-06-10 16:13:31" target="_blank" href="/v/ac693772" class="title">技术宅VS姨妈巾</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=526246" class="name"><i class="icon grey icon-user"></i>小雷同学</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时13分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时13分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>3928</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>19</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>10</span>
+			</div>
+			
+			<p class="desc">流量多大都不怕。。。。。</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693769" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693769" class="thumb">
+				<img alt="视频封面:西方情侣流行无高潮性爱" src="http://vpic.video.qq.com/123/r0012me4hg0_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>337</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>1</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="睿鑫网络 发布于 2013-06-10 16:12:21" target="_blank" href="/v/ac693769" class="title">西方情侣流行无高潮性爱</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=536217" class="name"><i class="icon grey icon-user"></i>睿鑫网络</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时12分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时12分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>337</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>1</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>1</span>
+			</div>
+			
+			<p class="desc">西方情侣流行无高潮性爱</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693764" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693764" class="thumb">
+				<img alt="视频封面:店主停业称后天开门 请问：后天是哪天" src="http://vpic.video.qq.com/123/e0012fp4l4s_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>3275</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>8</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="睿鑫网络 发布于 2013-06-10 16:09:22" target="_blank" href="/v/ac693764" class="title">店主停业称后天开门 请问：后天是哪天</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=536217" class="name"><i class="icon grey icon-user"></i>睿鑫网络</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时09分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时09分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>3275</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>8</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>2</span>
+			</div>
+			
+			<p class="desc">店主停业称后天开门 请问：后天是哪天</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693763" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693763" class="thumb">
+				<img alt="视频封面:牛人腾空盘腿坐 技惊四座" src="http://vpic.video.qq.com/123/o0012jm99m5_1.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>6840</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>24</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="睿鑫网络 发布于 2013-06-10 16:08:41" target="_blank" href="/v/ac693763" class="title">牛人腾空盘腿坐 技惊四座</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=536217" class="name"><i class="icon grey icon-user"></i>睿鑫网络</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时08分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时08分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>6840</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>24</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>14</span>
+			</div>
+			
+			<p class="desc">牛人腾空盘腿坐 技惊四座</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693762" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693762" class="thumb">
+				<img alt="视频封面:巨胸超模Kate Upton超火辣Carl s Jr汉堡广告" src="http://g4.ykimg.com/1100641F464F4DF37B7E4D031E1B2710416FFC-6561-1783-830E-D89B76D2BF5E" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>5919</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>17</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="取名字累 发布于 2013-06-10 16:08:20" target="_blank" href="/v/ac693762" class="title">巨胸超模Kate Upton超火辣Carl s Jr汉堡广告</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=540762" class="name"><i class="icon grey icon-user"></i>取名字累</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时08分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时08分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>5919</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>17</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>73</span>
+			</div>
+			
+			<p class="desc">体育画报当家模特Kate Upton为著名快餐品牌Carl's Jr拍摄的限制级广告</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+	<div data-aid="693761" class="item unit">
+		<div class="l">
+			<a target="_blank" href="/v/ac693761" class="thumb">
+				<img alt="视频封面:MBL 顶级音响广告宣传片" src="http://w5cdn.ranktv.cn/dotnet/artemis/u/cms/www/201306/10160533tsi9.jpg" class="preview">
+				<img class="cover" src="http://w5cdn.ranktv.cn/dotnet/20130418/style/image/img-cover-preview.png" alt="视频封面">
+				<p class="ico-play"></p>
+				<p class="info">
+					<span class="views pts l"><i class="icon gray icon-play-circle">[播放]</i>2106</span>
+					<span class="comments pts r"><i class="icon gray icon-comment">[评论]</i>10</span>
+				</p>
+			</a>
+		</div>
+		<div class="r">
+			<a title="ヒカリ悉尘 发布于 2013-06-10 16:07:51" target="_blank" href="/v/ac693761" class="title">MBL 顶级音响广告宣传片</a>
+			<div class="info-extra">
+				<a href="/member/user.aspx?uid=267759" class="name"><i class="icon grey icon-user"></i>ヒカリ悉尘</a>
+				<span class="info-th-list">&nbsp;&nbsp;/&nbsp;&nbsp;</span>
+				<span class="info-th-large"></span>
+				<span title="发布于 2013年 6月10日(星期一) 16时07分" class="time"><i class="icon grey icon-time"></i>6月10日(星期一) 16时07分&nbsp;&nbsp;</span>
+				<span class="info-th-list">/&nbsp;&nbsp;</span>
+				<span title="播放数" class="views"><i class="icon grey icon-play-circle">点击:</i>2106</span>
+				&nbsp;&nbsp;
+				<span title="评论数" class="comments"><i class="icon grey icon-comment">评论:</i>10</span>
+				&nbsp;&nbsp;
+				<span title="点击数" class="favors"><i class="icon grey icon-star">收藏:</i>7</span>
+			</div>
+			
+			<p class="desc">这段广告通过多次木制品折断声音的线索，以及用户、CD店员和指挥家的举动刻画，巧妙地将高品质音响的素质完美体现出来，丰满地表达了MBL的HI-END境界</p>
+			
+		</div>
+		<span class="clearfix"></span>
+	</div>
+</div>
+<!--List -->
+
+<div class="area-pager"><!--Page --> 
+				<a href="index_1.htm" class="pager">1</a>
+				<a class="pager active">2</a>
+				<a href="index_3.htm" class="pager">3</a>
+				<a href="index_4.htm" class="pager">4</a>
+				<a href="index_5.htm" class="pager">5</a>
+				<a href="index_6.htm" class="pager">6</a>
+				<a href="index_7.htm" class="pager">7</a>
+			<a href="index_3.htm" class="pager next"><i title="下一页" class="icon white icon-chevron-right">下一页</i></a>
+			<a href="index_3465.htm" class="pager last"><i title="最末" class="icon white icon-step-forward">最末</i></a>
+<!--Page -->
+</div>
+<!-- ex --> 
+<!--Content -->
+				</div>
+			</div><!--Mainer Right -->
+			
+			<!--Mainer Left -->
+			
+			<span class="clearfix"></span>
+		</div><!--Inner -->
+	</div><!--Mainer -->
+<script>
+	//执行mainer.js
+    $.exe('second', function(){
+		//show loadin time
+		if ( !! system.debug) {
+			$.info('debug::系统加载完毕于' + $.parsePing(new Date().getTime() - system.st) + '。');
+		};
+		$.exe('third');
+	});
+</script>	
+<script>
+readyGuideFooter();
+</script><!--Footer Guide -->
+	
+<!--Ad Bottom -->
+	<!--Footer -->
+<span class="clearfix"></span>
+
+<script>
+	//height fix
+	$('#mainer')
+	.css({
+		'min-height': $('#mainer').height() + ($(window).innerHeight() || $('body').height()) - $('#stage').height()
+	});
+	$(window)
+	.resize(function(){
+		$('#mainer')
+		.css({
+			'min-height': $('#mainer').height() + ($(window).innerHeight() || $('body').height()) - $('#stage').height()
+		});
+	});
+</script><!--Footer -->
+</div><!--Stage -->
+
+</body></html>

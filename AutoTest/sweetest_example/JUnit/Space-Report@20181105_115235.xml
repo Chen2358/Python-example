@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<testsuites>
+	<testsuite errors="0" errors_detail="H:0 M:0 L:0" failures="0" failures_detail="H:0 M:0 L:0" hostname="space" name="Space" tests="1" time="26.787448" timestamp="2018-11-05T11:52:35.254675">
+		<testcase classname="SNIPPET_001" name="space-登录" priority="H" time="21.927064"/>
+	</testsuite>
+</testsuites>

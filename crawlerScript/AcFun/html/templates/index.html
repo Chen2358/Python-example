@@ -1,0 +1,168 @@
+<html class=" js no-flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="Copyright (c) AcFun" name="copyright">
+<title>ac week trend-cwyalpha</title>
+<link href="static/core.css" rel="stylesheet" id="sanae"><!--Style -->
+<link href="static/channel.css" rel="stylesheet" id="nagisa">
+<!--[if lt IE 8]>
+<script src="static/json2.js"></script>
+<![endif]-->
+<script src="static/prefix.js"></script>
+<script src="static/core05211055.js"></script>
+<script>
+	system.path ="http://w5cdn.ranktv.cn/dotnet/20130418";
+</script>
+<script src="static/ubb.min.js"></script>
+<script src="static/header.js"></script><!--Script -->
+<script>
+	system.location = 'location-channel';
+	system.type = 'joy';
+</script>
+<script src="static/channel.js"></script>
+<style type="text/css">object,embed{-webkit-animation-duration:.001s;-webkit-animation-name:playerInserted;-ms-animation-duration:.001s;-ms-animation-name:playerInserted;-o-animation-duration:.001s;-o-animation-name:playerInserted;animation-duration:.001s;animation-name:playerInserted;}@-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}@keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}</style></head>
+
+<body>
+<div class="location-channel" id="stage"><!--Stage -->
+	<!--Header开始-->
+<div id="area-info"></div><!--Info Area -->
+<div id="area-window"><!--Window Area -->
+	<div class="win" id="win-info" style="display: none;"><div class="mainer"></div></div><!--Window Info -->
+	<div class="win win-hint" id="win-hint"><div class="mainer"></div><div class="tail"></div></div><!--Window Hint -->
+</div><!--Window Area -->
+
+<!--Guide -->
+<span class="clearfix"></span>
+<script>
+	$.readyStage(function() {
+		$.exe('first');
+		readyHeader();
+	});
+</script><!--Header --><!--Header -->
+	<!--
+<div class="ad ad-top">
+<a href="/a/ac685735" target="_blank" title=""><img src="http://w5cdn.ranktv.cn/dotnet/artemis/u/cms/www/201306/08101614odz9.jpg" border="0" style=""/></a>
+
+
+<div class="tail"></div>
+</div>
+--><!--Ad -->
+	<div id="mainer" style="min-height: 257px;"><!--Mainer -->
+		<div id="mainer-inner"><!--Inner -->
+			<div class="area-left" id="area-mainer-left"><!--Mainer Right -->
+				<!--tabb Top -->
+				<!--Ad -->
+				<div class="tabb block" id="block-channel-content">
+					
+					<div class="mainer th-large">
+<script>
+	var bindListStyle = function(){
+		$('#block-channel-content&gt;div.banner&gt;span.tool&gt;div.btn')
+		.click(function(){
+			if(!$(this).hasClass('active')){
+				//get config
+				config.channel.style = $.trim($(this).children('i.icon').attr('class').toString().match(/th\-large|th\-list|th/)[0].toString());
+				//save config
+				$.save('config');
+				//add active class
+				$(this)
+				.siblings().removeClass('active')
+				.end()
+				.addClass('active');
+				//execute
+				if(config.channel.style == 'th'){
+					//block-reply
+					var style = '&lt;style id="ryou"&gt;#block-channel-reply{display:none;}&lt;/style&gt;';
+					$('#nagisa').after(style);
+					//block-main
+					$('#block-channel-content').find('div.mainer')
+					.delegate('div.unit', 'mouseenter', function(){
+						var obj = $(this).find('p.info');
+						obj
+						.stop()
+						.animate({
+							opacity: 0.2
+						}, 200);
+					})
+					.delegate('div.unit', 'mouseleave', function(){
+						var obj = $(this).find('p.info');
+						obj
+						.stop()
+						.animate({
+							opacity: 1
+						}, 200);
+					});
+				}else{
+					//block-reply
+					$('#ryou').remove();
+					//block-main
+					$('#block-channel-content').find('div.mainer').undelegate();
+				};
+				//rewrite block-main class
+				$('#block-channel-content').find('div.mainer').attr({
+					'class': 'mainer ' + config.channel.style
+				});
+			};
+		});
+		//loadin
+		$('#block-channel-content&gt;div.banner&gt;span.tool')
+		.find('i.icon-' + config.channel.style)
+		.parent()
+		.click();
+	};
+	//
+	bindListStyle();
+</script>
+	<!--List -->
+$$$$$List$$$$$
+<!--List -->
+
+<div class="area-pager"><!--Page --> 
+				$$$$$Page$$$$$
+<!--Page -->
+</div>
+<!-- ex --> 
+<!--Content -->
+				</div>
+			</div><!--Mainer Right -->
+			
+			<!--Mainer Left -->
+			
+			<span class="clearfix"></span>
+		</div><!--Inner -->
+	</div><!--Mainer -->
+<script>
+	//执行mainer.js
+    $.exe('second', function(){
+		//show loadin time
+		if ( !! system.debug) {
+			$.info('debug::系统加载完毕于' + $.parsePing(new Date().getTime() - system.st) + '。');
+		};
+		$.exe('third');
+	});
+</script>	
+<script>
+readyGuideFooter();
+</script><!--Footer Guide -->
+	
+<!--Ad Bottom -->
+	<!--Footer -->
+<span class="clearfix"></span>
+
+<script>
+	//height fix
+	$('#mainer')
+	.css({
+		'min-height': $('#mainer').height() + ($(window).innerHeight() || $('body').height()) - $('#stage').height()
+	});
+	$(window)
+	.resize(function(){
+		$('#mainer')
+		.css({
+			'min-height': $('#mainer').height() + ($(window).innerHeight() || $('body').height()) - $('#stage').height()
+		});
+	});
+</script><!--Footer -->
+</div><!--Stage -->
+
+</body></html>

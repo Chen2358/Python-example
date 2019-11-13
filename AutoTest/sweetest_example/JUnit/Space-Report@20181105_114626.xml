@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<testsuites>
+	<testsuite errors="0" errors_detail="H:0 M:0 L:0" failures="1" failures_detail="H:1 M:0 L:0" hostname="space" name="Space" tests="1" time="20.903864" timestamp="2018-11-05T11:46:26.057144">
+		<testcase classname="SNIPPET_001" name="space-登录" priority="H" time="15.979417">
+			<failure message="step-2|INPUT|通用-手机号输入框: Message: 
+" type="Fail"/>
+		</testcase>
+	</testsuite>
+</testsuites>

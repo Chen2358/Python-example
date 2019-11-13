@@ -1,0 +1,3505 @@
+2018-11-05 11:42:01,760 [ERROR] autotest.py line:93: *** From Excel import testsuite fail ***
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\xlrd\book.py", line 470, in sheet_by_name
+    sheetx = self._sheet_names.index(sheet_name)
+ValueError: 'space' is not in list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\autotest.py", line 87, in run
+    data = self.testcase_workbook.read(sheet_name)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\utility.py", line 44, in read
+    sheet = self.workbook.sheet_by_name(sheet_name)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\xlrd\book.py", line 472, in sheet_by_name
+    raise XLRDError('No sheet named <%r>' % sheet_name)
+xlrd.biffh.XLRDError: No sheet named <'space'>
+2018-11-05 11:42:23,927 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "15626534444",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "15626534444",
+                "vdata": "15626534444",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": 534444.0,
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": 534444.0,
+                "vdata": 534444.0,
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    }
+]
+2018-11-05 11:42:23,930 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 11:42:28,876 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 11:42:28,877 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 11:42:28,878 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 11:42:28,879 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 11:42:31,253 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 11:42:31,454 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 11:42:31,454 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 11:42:32,629 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 11:42:32,829 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 11:42:38,715 [ERROR] testcase.py line:181: Run the Step: 2|INPUT|通用-手机号输入框 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 143, in input
+    element_location = locating_element(element)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 29, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 11:46:26,057 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    }
+]
+2018-11-05 11:46:26,061 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 11:46:30,980 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 11:46:30,981 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 11:46:30,982 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 11:46:30,982 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 11:46:36,445 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 11:46:36,646 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 11:46:36,646 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 11:46:37,925 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 11:46:38,126 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 11:46:46,957 [ERROR] testcase.py line:181: Run the Step: 2|INPUT|通用-手机号输入框 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 143, in input
+    element_location = locating_element(element)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 29, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 11:49:03,119 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    }
+]
+2018-11-05 11:49:03,124 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 11:49:08,064 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 11:49:08,064 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 11:49:08,066 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 11:49:08,067 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 11:49:13,359 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 11:49:13,559 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 11:49:13,559 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 11:49:17,712 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 11:49:17,914 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 11:49:26,694 [ERROR] testcase.py line:181: Run the Step: 2|INPUT|通用-手机号输入框 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 143, in input
+    element_location = locating_element(element)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 29, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 11:52:35,254 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    }
+]
+2018-11-05 11:52:35,259 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 11:52:40,114 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 11:52:40,115 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 11:52:40,116 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 11:52:40,117 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 11:52:45,228 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 11:52:45,429 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 11:52:45,430 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 11:52:49,561 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 11:52:49,763 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 11:52:53,517 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 11:52:53,718 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 11:52:57,395 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 11:52:57,595 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 11:53:01,838 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 14:57:43,799 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传图纸",
+                "data": "file=E:\\upload\\【报价】洞洞板.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传图纸",
+                "_data": "file=E:\\upload\\【报价】洞洞板.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\【报价】洞洞板.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 14:57:43,809 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 14:57:48,828 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 14:57:48,830 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 14:57:48,832 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 14:57:48,832 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 14:57:48,833 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 14:57:54,256 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 14:57:54,457 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 14:57:54,457 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 14:57:57,459 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 14:57:57,460 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 14:58:01,863 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 14:58:02,064 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 14:58:05,864 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 14:58:06,065 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 14:58:09,739 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 14:58:09,940 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 14:58:14,257 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 14:58:14,459 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 14:58:14,659 [INFO] testcase.py line:73: Run the Step: 2|CLICK|立即询价
+2018-11-05 14:58:18,383 [INFO] testcase.py line:149: Run the Step: 2|CLICK|space工作台-立即询价 is Pass
+2018-11-05 14:58:18,585 [INFO] testcase.py line:73: Run the Step: 3|UPLOAD|上传图纸
+2018-11-05 14:58:28,808 [INFO] testcase.py line:149: Run the Step: 3|UPLOAD|space工作台-上传图纸 is Pass
+2018-11-05 14:58:29,011 [INFO] testcase.py line:73: Run the Step: 4|CLICK|图纸下一步
+2018-11-05 14:58:38,089 [ERROR] testcase.py line:181: Run the Step: 4|CLICK|space工作台-图纸下一步 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 14:58:38,092 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 14:58:38,093 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 14:58:38,093 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 14:58:38,093 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 14:58:39,315 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 14:58:39,515 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 14:58:39,515 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 14:58:39,517 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 14:58:39,517 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 14:58:48,568 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 14:58:48,575 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 14:58:48,575 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 14:58:48,576 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 14:58:48,576 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 14:58:49,826 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 14:58:50,027 [INFO] testcase.py line:56: Run the TestCase: SPACE_004|3D打印
+2018-11-05 14:58:50,027 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 14:58:50,029 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 14:58:50,030 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 14:58:58,977 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 14:58:58,979 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 14:58:58,979 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 14:58:58,979 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 14:58:58,979 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 14:59:00,133 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 14:59:00,334 [INFO] testcase.py line:56: Run the TestCase: SPACE_005|下单
+2018-11-05 14:59:02,456 [ERROR] autotest.py line:135: *** Save the report is fail ***
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\autotest.py", line 132, in run
+    data = testsuite2data(testsuite)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\data.py", line 86, in testsuite2data
+    s = d['steps'][0]  # 第一步和用例标题同一行
+IndexError: list index out of range
+2018-11-05 15:00:09,079 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传图纸",
+                "data": "file=E:\\upload\\洞洞板.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传图纸",
+                "_data": "file=E:\\upload\\洞洞板.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\洞洞板.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 15:00:09,091 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 15:00:13,836 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:00:13,837 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:00:13,840 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:00:13,842 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:00:13,843 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 15:00:19,037 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:00:19,238 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 15:00:19,239 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:00:22,243 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:00:22,243 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:00:26,345 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 15:00:26,546 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 15:00:30,255 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 15:00:30,456 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 15:00:34,096 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 15:00:34,297 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 15:00:38,460 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 15:00:38,676 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 15:00:38,876 [INFO] testcase.py line:73: Run the Step: 2|CLICK|立即询价
+2018-11-05 15:00:42,521 [INFO] testcase.py line:149: Run the Step: 2|CLICK|space工作台-立即询价 is Pass
+2018-11-05 15:00:42,722 [INFO] testcase.py line:73: Run the Step: 3|UPLOAD|上传图纸
+2018-11-05 15:00:52,891 [INFO] testcase.py line:149: Run the Step: 3|UPLOAD|space工作台-上传图纸 is Pass
+2018-11-05 15:00:53,091 [INFO] testcase.py line:73: Run the Step: 4|CLICK|图纸下一步
+2018-11-05 15:01:01,982 [ERROR] testcase.py line:181: Run the Step: 4|CLICK|space工作台-图纸下一步 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:01:01,985 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:01:01,986 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:01:01,986 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:01:01,987 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:01:03,274 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:01:03,475 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 15:01:03,475 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:01:03,480 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:01:03,481 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:01:12,382 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:01:12,385 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:01:12,385 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:01:12,386 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:01:12,386 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:01:13,498 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:01:13,698 [INFO] testcase.py line:56: Run the TestCase: SPACE_004|3D打印
+2018-11-05 15:01:13,699 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:01:13,704 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:01:13,704 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:03:24,290 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传图纸",
+                "data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传图纸",
+                "_data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 15:03:24,299 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 15:03:29,103 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:03:29,103 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:03:29,104 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:03:29,105 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:03:29,105 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 15:03:37,799 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:03:38,000 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 15:03:38,000 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:03:41,001 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:03:41,001 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:03:44,636 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 164, in click
+    element_location.click()
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: unknown error: Element <a href="/portal/login" class="login">...</a> is not clickable at point (1524, 60). Other element would receive the click: <div class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="firstTime" style="display: block; padding-right: 17px;">...</div>
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 10.0.17134 x86_64)
+
+2018-11-05 15:03:44,641 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:03:44,641 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:03:44,641 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:03:44,641 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:03:47,685 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:03:47,885 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 15:03:47,888 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:03:47,889 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:03:47,890 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:03:55,232 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 15:03:55,433 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 15:03:59,199 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 15:03:59,399 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 15:04:03,080 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 15:04:03,281 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 15:04:12,285 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 15:04:12,485 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 15:04:12,686 [INFO] testcase.py line:73: Run the Step: 2|CLICK|
+2018-11-05 15:04:13,161 [ERROR] testcase.py line:181: Run the Step: 2|CLICK| is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 22, in locating_element
+    if el['by'].lower() in ('title', 'url', 'current_url'):
+TypeError: string indices must be integers
+2018-11-05 15:04:13,166 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:04:13,167 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:04:13,167 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:04:13,168 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:04:16,168 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:04:16,369 [INFO] testcase.py line:56: Run the TestCase: SPACE_004|3D打印
+2018-11-05 15:04:16,369 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:04:16,370 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:04:16,370 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:04:25,324 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:04:25,346 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:04:25,346 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:04:25,347 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:04:25,348 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:04:28,350 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:04:28,550 [INFO] testcase.py line:56: Run the TestCase: SPACE_005|下单
+2018-11-05 15:04:30,723 [ERROR] autotest.py line:135: *** Save the report is fail ***
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\autotest.py", line 132, in run
+    data = testsuite2data(testsuite)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\data.py", line 86, in testsuite2data
+    s = d['steps'][0]  # 第一步和用例标题同一行
+IndexError: list index out of range
+2018-11-05 15:04:40,204 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传图纸",
+                "data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传图纸",
+                "_data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\洞洞板-速加网零件清单模版.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 15:04:40,222 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 15:04:45,049 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:04:45,050 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:04:45,051 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:04:45,052 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:04:45,052 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 15:04:50,610 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:04:50,810 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 15:04:50,811 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:04:53,815 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:04:53,815 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:04:59,796 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 15:04:59,999 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 15:05:03,749 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 15:05:03,950 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 15:05:07,654 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 15:05:07,854 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 15:05:18,247 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 15:05:18,447 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 15:05:18,648 [INFO] testcase.py line:73: Run the Step: 2|CLICK|立即询价
+2018-11-05 15:05:22,366 [INFO] testcase.py line:149: Run the Step: 2|CLICK|space工作台-立即询价 is Pass
+2018-11-05 15:05:22,568 [INFO] testcase.py line:73: Run the Step: 3|UPLOAD|上传图纸
+2018-11-05 15:05:32,734 [INFO] testcase.py line:149: Run the Step: 3|UPLOAD|space工作台-上传图纸 is Pass
+2018-11-05 15:05:32,936 [INFO] testcase.py line:73: Run the Step: 4|CLICK|图纸下一步
+2018-11-05 15:05:41,731 [ERROR] testcase.py line:181: Run the Step: 4|CLICK|space工作台-图纸下一步 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:05:41,735 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:05:41,735 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:05:41,735 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:05:41,736 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:05:43,835 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:05:44,036 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 15:05:44,036 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:05:44,040 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:05:44,041 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:11:46,911 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传图纸",
+                "data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传图纸",
+                "_data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 15:11:46,921 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 15:11:52,384 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:11:52,385 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:11:52,386 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:11:52,387 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:11:52,387 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 15:11:59,046 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:11:59,250 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 15:11:59,252 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:12:02,257 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:12:02,259 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:12:08,219 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 15:12:08,421 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 15:12:12,210 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 15:12:12,413 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 15:12:16,121 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 15:12:16,324 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 15:12:27,027 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 15:12:27,231 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 15:12:27,433 [INFO] testcase.py line:73: Run the Step: 2|CLICK|立即询价
+2018-11-05 15:12:31,077 [INFO] testcase.py line:149: Run the Step: 2|CLICK|space工作台-立即询价 is Pass
+2018-11-05 15:12:31,277 [INFO] testcase.py line:73: Run the Step: 3|UPLOAD|上传图纸
+2018-11-05 15:12:41,495 [INFO] testcase.py line:149: Run the Step: 3|UPLOAD|space工作台-上传图纸 is Pass
+2018-11-05 15:12:41,696 [INFO] testcase.py line:73: Run the Step: 4|CLICK|图纸下一步
+2018-11-05 15:12:50,548 [ERROR] testcase.py line:181: Run the Step: 4|CLICK|space工作台-图纸下一步 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:12:50,557 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:12:50,557 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:12:50,560 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:12:50,560 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:12:52,071 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:12:52,275 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 15:12:52,276 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:12:52,284 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:12:52,285 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:14:56,332 [INFO] autotest.py line:90: Testsuite imported from Excel:
+[
+    {
+        "id": "SPACE_001",
+        "title": "打开space",
+        "condition": "SETUP",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "打开",
+                "page": "",
+                "element": "space链接",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "打开",
+                "_element": "space链接",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SNIPPET_001",
+        "title": "space-登录",
+        "condition": "SNIPPET",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "H",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "点击",
+                "page": "",
+                "element": "立即登录",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即登录",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "输入",
+                "page": "",
+                "element": "手机号输入框",
+                "data": "text=15626534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "输入",
+                "_element": "手机号输入框",
+                "_data": "text=15626534444, 等待时间=3",
+                "vdata": "text=15626534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "输入",
+                "page": "",
+                "element": "密码输入框",
+                "data": "text=534444, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "检查的预期结果建议写在测试数据列，也可以写在预期结果列。如果没有 http 接口测试，可以删除预期结果列。",
+                "_keyword": "输入",
+                "_element": "密码输入框",
+                "_data": "text=534444, 等待时间=3",
+                "vdata": "text=534444, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "登录按钮",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "登录按钮",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_002",
+        "title": "开始询价",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "立即询价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "立即询价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "点击",
+                "page": "",
+                "element": "上传图纸",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "上传图纸",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "文件",
+                "data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "文件",
+                "_data": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban.rar, 等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "4",
+                "keyword": "点击",
+                "page": "",
+                "element": "图纸下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "图纸下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "5",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "上传清单",
+                "data": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "上传清单",
+                "_data": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "vdata": "file=E:\\upload\\dongdongban_moban.xls,等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "6",
+                "keyword": "点击",
+                "page": "",
+                "element": "下载清单",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "下载清单",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "7",
+                "keyword": "点击",
+                "page": "",
+                "element": "清单下一步",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "清单下一步",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "8",
+                "keyword": "点击",
+                "page": "",
+                "element": "提交报价",
+                "data": "等待时间=3",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "提交报价",
+                "_data": "等待时间=3",
+                "vdata": "等待时间=3",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_003",
+        "title": "激光切割",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_004",
+        "title": "3D打印",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": [
+            {
+                "control": "",
+                "no": "1",
+                "keyword": "执行",
+                "page": "用例片段",
+                "element": "SNIPPET_001",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "执行",
+                "_element": "SNIPPET_001",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "2",
+                "keyword": "点击",
+                "page": "space工作台",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "点击",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            },
+            {
+                "control": "",
+                "no": "3",
+                "keyword": "上传文件",
+                "page": "",
+                "element": "",
+                "data": "",
+                "expected": "",
+                "output": "",
+                "score": "",
+                "remark": "",
+                "_keyword": "上传文件",
+                "_element": "",
+                "_data": "",
+                "vdata": "",
+                "_expected": "",
+                "_output": ""
+            }
+        ]
+    },
+    {
+        "id": "SPACE_005",
+        "title": "下单",
+        "condition": "",
+        "designer": "",
+        "flag": "",
+        "result": "",
+        "remark": "",
+        "priority": "M",
+        "steps": []
+    }
+]
+2018-11-05 15:14:56,345 [INFO] autotest.py line:91: From Excel import testsuite success
+2018-11-05 15:15:01,265 [INFO] testsuite.py line:98: Run the testcase: SPACE_001|打开space Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:15:01,265 [INFO] testsuite.py line:98: Run the testcase: SNIPPET_001|space-登录 Skipped, because the flag=N or the condition=snippet
+2018-11-05 15:15:01,267 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:15:01,268 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:15:01,268 [INFO] testcase.py line:73: Run the Step: 1|OPEN|space链接
+2018-11-05 15:15:07,447 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:15:07,649 [INFO] testcase.py line:56: Run the TestCase: SPACE_002|开始询价
+2018-11-05 15:15:07,649 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:15:10,650 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:15:10,652 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:15:14,834 [INFO] testcase.py line:149: Run the Step: 1|CLICK|通用-立即登录 is Pass
+2018-11-05 15:15:15,035 [INFO] testcase.py line:73: Run the Step: 2|INPUT|手机号输入框
+2018-11-05 15:15:18,775 [INFO] testcase.py line:149: Run the Step: 2|INPUT|通用-手机号输入框 is Pass
+2018-11-05 15:15:18,975 [INFO] testcase.py line:73: Run the Step: 3|INPUT|密码输入框
+2018-11-05 15:15:22,672 [INFO] testcase.py line:149: Run the Step: 3|INPUT|通用-密码输入框 is Pass
+2018-11-05 15:15:22,874 [INFO] testcase.py line:73: Run the Step: 4|CLICK|登录按钮
+2018-11-05 15:15:27,155 [INFO] testcase.py line:149: Run the Step: 4|CLICK|通用-登录按钮 is Pass
+2018-11-05 15:15:27,356 [INFO] testcase.py line:149: Run the Step: 1|EXECUTE|SNIPPET_001 is Pass
+2018-11-05 15:15:27,557 [INFO] testcase.py line:73: Run the Step: 2|CLICK|立即询价
+2018-11-05 15:15:31,176 [INFO] testcase.py line:149: Run the Step: 2|CLICK|space工作台-立即询价 is Pass
+2018-11-05 15:15:31,377 [INFO] testcase.py line:73: Run the Step: 3|CLICK|上传图纸
+2018-11-05 15:15:32,042 [INFO] testcase.py line:149: Run the Step: 3|CLICK|space工作台-上传图纸 is Pass
+2018-11-05 15:15:32,243 [INFO] testcase.py line:73: Run the Step: 4|UPLOAD|文件
+2018-11-05 15:15:32,243 [WARNING] elements.py line:57: Page:space工作台 element:文件 is not exist
+2018-11-05 15:15:35,848 [ERROR] testcase.py line:181: Run the Step: 4|UPLOAD|文件 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 273, in upload
+    element_location = locating_element(element)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 22, in locating_element
+    if el['by'].lower() in ('title', 'url', 'current_url'):
+TypeError: string indices must be integers
+2018-11-05 15:15:35,851 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:15:35,853 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:15:35,853 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:15:35,853 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:15:37,010 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:15:37,210 [INFO] testcase.py line:56: Run the TestCase: SPACE_003|激光切割
+2018-11-05 15:15:37,211 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:15:37,217 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:15:37,231 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:15:46,163 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:15:46,166 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:15:46,166 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:15:46,166 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:15:46,167 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:15:47,621 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:15:47,821 [INFO] testcase.py line:56: Run the TestCase: SPACE_004|3D打印
+2018-11-05 15:15:47,822 [INFO] testcase.py line:73: Run the Step: 1|EXECUTE|SNIPPET_001
+2018-11-05 15:15:47,827 [INFO] testcase.py line:56: Run the TestCase: SNIPPET_001|space-登录
+2018-11-05 15:15:47,834 [INFO] testcase.py line:73: Run the Step: 1|CLICK|立即登录
+2018-11-05 15:15:56,811 [ERROR] testcase.py line:181: Run the Step: 1|CLICK|通用-立即登录 is Failure
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\testcase.py", line 106, in run
+    getattr(web, step['keyword'].lower())(step)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\keywords\web.py", line 162, in click
+    element_location = locating_element(element, 'CLICK')
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\locator.py", line 26, in locating_element
+    (getattr(By, el['by'].upper()), value)))
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+2018-11-05 15:15:56,814 [INFO] testsuite.py line:28: Start running the SETUP testcase...
+2018-11-05 15:15:56,814 [INFO] testcase.py line:56: Run the TestCase: SPACE_001|打开space
+2018-11-05 15:15:56,814 [INFO] testcase.py line:73: Run the Step: 1|OPEN|通用-space链接
+2018-11-05 15:15:56,815 [WARNING] elements.py line:57: Page:通用 element:通用-space链接 is not exist
+2018-11-05 15:15:57,927 [INFO] testcase.py line:149: Run the Step: 1|OPEN|通用-space链接 is Pass
+2018-11-05 15:15:58,127 [INFO] testcase.py line:56: Run the TestCase: SPACE_005|下单
+2018-11-05 15:16:00,321 [ERROR] autotest.py line:135: *** Save the report is fail ***
+Traceback (most recent call last):
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\autotest.py", line 132, in run
+    data = testsuite2data(testsuite)
+  File "E:\Python37\projects\UITest\uitest_env\lib\site-packages\sweetest\data.py", line 86, in testsuite2data
+    s = d['steps'][0]  # 第一步和用例标题同一行
+IndexError: list index out of range
