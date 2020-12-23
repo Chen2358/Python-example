@@ -75,8 +75,8 @@ def quick_sort(alist, first, last):
 		alist[high] = alist[low]
 
 	alist[low] = mid
-	quick_sort(alist, first, mid-1)
-	quick_sort(alist, mid+1, last)
+	quick_sort(alist, first, low-1)
+	quick_sort(alist, low+1, last)
 
 #二分查找
 def bsearch(alist, item):
